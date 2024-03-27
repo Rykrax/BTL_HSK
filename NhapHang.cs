@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace BTL_HSK_ver_1
 {
+    hehe
     public partial class frmNhapHang : Form
     {
         public frmNhapHang()
