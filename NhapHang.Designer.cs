@@ -31,14 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapHang));
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.txtGiaNhap = new System.Windows.Forms.TextBox();
-            this.txtTenHang = new System.Windows.Forms.TextBox();
             this.lblGia = new System.Windows.Forms.Label();
             this.lblDVT = new System.Windows.Forms.Label();
-            this.lblTenHang = new System.Windows.Forms.Label();
+            this.lblMaSP = new System.Windows.Forms.Label();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.btnNhapLai = new System.Windows.Forms.Button();
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTenSP = new System.Windows.Forms.Label();
+            this.cboMaSP = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.cboMaNV = new System.Windows.Forms.ComboBox();
@@ -70,24 +72,16 @@
             // 
             // txtGiaNhap
             // 
-            this.txtGiaNhap.Location = new System.Drawing.Point(185, 70);
+            this.txtGiaNhap.Location = new System.Drawing.Point(185, 125);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(297, 30);
             this.txtGiaNhap.TabIndex = 7;
-            // 
-            // txtTenHang
-            // 
-            this.txtTenHang.Location = new System.Drawing.Point(185, 20);
-            this.txtTenHang.Name = "txtTenHang";
-            this.txtTenHang.Size = new System.Drawing.Size(297, 30);
-            this.txtTenHang.TabIndex = 5;
-            this.txtTenHang.TextChanged += new System.EventHandler(this.txtTenHang_TextChanged);
             // 
             // lblGia
             // 
             this.lblGia.AutoSize = true;
             this.lblGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGia.Location = new System.Drawing.Point(31, 74);
+            this.lblGia.Location = new System.Drawing.Point(31, 128);
             this.lblGia.Name = "lblGia";
             this.lblGia.Size = new System.Drawing.Size(81, 22);
             this.lblGia.TabIndex = 1;
@@ -103,21 +97,21 @@
             this.lblDVT.TabIndex = 3;
             this.lblDVT.Text = "Đơn vị tính";
             // 
-            // lblTenHang
+            // lblMaSP
             // 
-            this.lblTenHang.AutoSize = true;
-            this.lblTenHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenHang.Location = new System.Drawing.Point(31, 24);
-            this.lblTenHang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTenHang.Name = "lblTenHang";
-            this.lblTenHang.Size = new System.Drawing.Size(81, 22);
-            this.lblTenHang.TabIndex = 0;
-            this.lblTenHang.Text = "Tên hàng";
+            this.lblMaSP.AutoSize = true;
+            this.lblMaSP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSP.Location = new System.Drawing.Point(31, 24);
+            this.lblMaSP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaSP.Name = "lblMaSP";
+            this.lblMaSP.Size = new System.Drawing.Size(114, 22);
+            this.lblMaSP.TabIndex = 0;
+            this.lblMaSP.Text = "Mã sản phẩm";
             // 
             // btnNhapHang
             // 
             this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Location = new System.Drawing.Point(268, 373);
+            this.btnNhapHang.Location = new System.Drawing.Point(268, 432);
             this.btnNhapHang.Name = "btnNhapHang";
             this.btnNhapHang.Size = new System.Drawing.Size(155, 47);
             this.btnNhapHang.TabIndex = 1;
@@ -128,7 +122,7 @@
             // btnNhapLai
             // 
             this.btnNhapLai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapLai.Location = new System.Drawing.Point(502, 373);
+            this.btnNhapLai.Location = new System.Drawing.Point(498, 432);
             this.btnNhapLai.Name = "btnNhapLai";
             this.btnNhapLai.Size = new System.Drawing.Size(155, 47);
             this.btnNhapLai.TabIndex = 2;
@@ -151,6 +145,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.lblTenSP);
+            this.panel1.Controls.Add(this.cboMaSP);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txtTen);
             this.panel1.Controls.Add(this.cboMaNV);
@@ -163,17 +160,41 @@
             this.panel1.Controls.Add(this.lblLoaiHang);
             this.panel1.Controls.Add(this.lblNgay);
             this.panel1.Controls.Add(this.dtpTime);
-            this.panel1.Controls.Add(this.txtTenHang);
             this.panel1.Controls.Add(this.nudSoLuong);
-            this.panel1.Controls.Add(this.lblTenHang);
+            this.panel1.Controls.Add(this.lblMaSP);
             this.panel1.Controls.Add(this.lblDVT);
             this.panel1.Controls.Add(this.lblSoLuong);
             this.panel1.Controls.Add(this.lblGia);
             this.panel1.Controls.Add(this.txtGiaNhap);
             this.panel1.Location = new System.Drawing.Point(82, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 298);
+            this.panel1.Size = new System.Drawing.Size(1000, 358);
             this.panel1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(185, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(297, 30);
+            this.textBox1.TabIndex = 24;
+            // 
+            // lblTenSP
+            // 
+            this.lblTenSP.AutoSize = true;
+            this.lblTenSP.Location = new System.Drawing.Point(31, 74);
+            this.lblTenSP.Name = "lblTenSP";
+            this.lblTenSP.Size = new System.Drawing.Size(118, 22);
+            this.lblTenSP.TabIndex = 23;
+            this.lblTenSP.Text = "Tên sản phẩm";
+            // 
+            // cboMaSP
+            // 
+            this.cboMaSP.FormattingEnabled = true;
+            this.cboMaSP.Location = new System.Drawing.Point(185, 21);
+            this.cboMaSP.Name = "cboMaSP";
+            this.cboMaSP.Size = new System.Drawing.Size(297, 30);
+            this.cboMaSP.TabIndex = 22;
+            this.cboMaSP.DropDown += new System.EventHandler(this.cboMaSP_DropDown);
             // 
             // pictureBox1
             // 
@@ -224,7 +245,7 @@
             // cboNCC
             // 
             this.cboNCC.FormattingEnabled = true;
-            this.cboNCC.Location = new System.Drawing.Point(185, 177);
+            this.cboNCC.Location = new System.Drawing.Point(185, 232);
             this.cboNCC.Name = "cboNCC";
             this.cboNCC.Size = new System.Drawing.Size(297, 30);
             this.cboNCC.TabIndex = 15;
@@ -232,7 +253,7 @@
             // lblNCC
             // 
             this.lblNCC.AutoSize = true;
-            this.lblNCC.Location = new System.Drawing.Point(31, 180);
+            this.lblNCC.Location = new System.Drawing.Point(31, 235);
             this.lblNCC.Name = "lblNCC";
             this.lblNCC.Size = new System.Drawing.Size(116, 22);
             this.lblNCC.TabIndex = 13;
@@ -250,7 +271,7 @@
             // 
             this.cboLoaiHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiHang.FormattingEnabled = true;
-            this.cboLoaiHang.Location = new System.Drawing.Point(185, 125);
+            this.cboLoaiHang.Location = new System.Drawing.Point(185, 172);
             this.cboLoaiHang.Name = "cboLoaiHang";
             this.cboLoaiHang.Size = new System.Drawing.Size(297, 30);
             this.cboLoaiHang.TabIndex = 11;
@@ -258,7 +279,7 @@
             // lblLoaiHang
             // 
             this.lblLoaiHang.AutoSize = true;
-            this.lblLoaiHang.Location = new System.Drawing.Point(31, 128);
+            this.lblLoaiHang.Location = new System.Drawing.Point(31, 180);
             this.lblLoaiHang.Name = "lblLoaiHang";
             this.lblLoaiHang.Size = new System.Drawing.Size(87, 22);
             this.lblLoaiHang.TabIndex = 10;
@@ -268,7 +289,7 @@
             // 
             this.lblNgay.AutoSize = true;
             this.lblNgay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgay.Location = new System.Drawing.Point(31, 231);
+            this.lblNgay.Location = new System.Drawing.Point(31, 290);
             this.lblNgay.Name = "lblNgay";
             this.lblNgay.Size = new System.Drawing.Size(134, 22);
             this.lblNgay.TabIndex = 2;
@@ -278,7 +299,7 @@
             // 
             this.dtpTime.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTime.Location = new System.Drawing.Point(185, 226);
+            this.dtpTime.Location = new System.Drawing.Point(185, 285);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.Size = new System.Drawing.Size(225, 28);
             this.dtpTime.TabIndex = 9;
@@ -286,7 +307,7 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai.Location = new System.Drawing.Point(739, 373);
+            this.btnQuayLai.Location = new System.Drawing.Point(744, 421);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(155, 47);
             this.btnQuayLai.TabIndex = 3;
@@ -298,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 464);
+            this.ClientSize = new System.Drawing.Size(1154, 521);
             this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNhapLai);
@@ -321,10 +342,9 @@
         #endregion
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.TextBox txtGiaNhap;
-        private System.Windows.Forms.TextBox txtTenHang;
         private System.Windows.Forms.Label lblGia;
         private System.Windows.Forms.Label lblDVT;
-        private System.Windows.Forms.Label lblTenHang;
+        private System.Windows.Forms.Label lblMaSP;
         private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Button btnNhapLai;
         private System.Windows.Forms.NumericUpDown nudSoLuong;
@@ -343,5 +363,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.ComboBox cboMaNV;
+        private System.Windows.Forms.ComboBox cboMaSP;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblTenSP;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace BTL_HSK_ver_1
     
     public partial class frmNhapHang : Form
     {
+        List<string> listSP = new List<string>();  
         public frmNhapHang()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace BTL_HSK_ver_1
 
         private void btnNhapLai_Click(object sender, EventArgs e)
         {
-            txtTenHang.Text = "";
+            cboMaSP.Text = "";
             cboDVT.Items.Clear();
             txtGiaNhap.Text = "";
             nudSoLuong.Value = 0;
@@ -46,14 +48,14 @@ namespace BTL_HSK_ver_1
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();
-                string query = "SELECT * FROM tblLoaiHang";
-                using (SqlCommand cmd = new SqlCommand(query,sql))
+                string query = "SELECT * FROM tblSanPham";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while(reader.Read())
                         {
-                            cboLoaiHang.Items.Add(reader.GetString(1));
+                            cboMaSP.Items.Add(reader.GetString(0));
                         }
                     }
                 }
@@ -94,7 +96,7 @@ namespace BTL_HSK_ver_1
                 string query = "SELECT * FROM tblSanPham WHERE sTenSP = @tensp";
                 using (SqlCommand cmd = new SqlCommand(query,sql))
                 {
-                    cmd.Parameters.AddWithValue("@tensp", txtTenHang.Text);
+                    cmd.Parameters.AddWithValue("@tensp", cboMaSP.Text);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while( reader.Read())
@@ -148,7 +150,7 @@ namespace BTL_HSK_ver_1
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();        
-                string query = $"SELECT * FROM tblSanPham WHERE sTenSP = N'{txtTenHang.Text}' AND sDonViTinh = N'{cboDVT.Text}'";
+                string query = $"SELECT * FROM tblSanPham WHERE sTenSP = N'{cboMaSP.Text}' AND sDonViTinh = N'{cboDVT.Text}'";
                 bool i = false;
                 //Lấy mã sản phẩm
                 string masp = "";
@@ -200,7 +202,7 @@ namespace BTL_HSK_ver_1
                         else break;
                     }
                     query = "INSERT INTO tblSanPham " +
-                           $"VALUES ('{masp}',N'{txtTenHang.Text}','{malh}', N'{cboDVT.Text}', {Convert.ToInt32(nudSoLuong.Value).ToString()}, {txtGiaNhap.Text})";
+                           $"VALUES ('{masp}',N'{cboMaSP.Text}','{malh}', N'{cboDVT.Text}', {Convert.ToInt32(nudSoLuong.Value).ToString()}, {txtGiaNhap.Text})";
                     using (SqlCommand cmd = new SqlCommand(query, sql))
                     {
                         cmd.ExecuteNonQuery();
@@ -300,6 +302,45 @@ namespace BTL_HSK_ver_1
             }
            */
             //MessageBox.Show(cboDVT.Text);
+            frmDanhSachNhanVien form = new frmDanhSachNhanVien();
+            //this.Hide();
+            form.ShowDialog();
+            form = null;
+        }
+
+        private void cboMaSP_DropDown(object sender, EventArgs e)
+        {
+            cboMaSP.Items.Clear();
+            listSP.Clear();
+            string query = "SELECT * FROM tblSanPham";
+            using (SqlConnection sql = ConnectData.GetSqlConnection())
+            {
+                sql.Open();
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cboMaSP.Items.Add(reader.GetString(0));
+                            listSP.Add(reader.GetString(0));
+                        }
+                    }
+                }
+                sql.Close();
+            }
+            if (cboMaSP.Text.Trim() != "")
+            {
+                cboMaSP.Items.Clear();
+                string masp = cboMaSP.Text.ToLower();
+                foreach (string item in listSP)
+                {
+                    if (item.ToLower().Contains(masp))
+                    {
+                        cboMaSP.Items.Add(item);
+                    }
+                }
+            }
         }
     }
 }
