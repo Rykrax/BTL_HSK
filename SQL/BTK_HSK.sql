@@ -8,12 +8,18 @@ CREATE TABLE tblSanPham (
 	sMaSP VARCHAR(30) PRIMARY KEY,
 	sTenSP NVARCHAR(50),
 	sLoaiHang VARCHAR(30),
-	sDonViTinh NVARCHAR(50),
-	iSoLuong INT DEFAULT 0,
-	fGiaTien FLOAT DEFAULT 0.0
+	sTenDVT NVARCHAR(50)
 )
 GO
 
+CREATE TABLE tblDonViTinh (
+	sMaSP VARCHAR(30),
+	sTenDVT NVARCHAR(50),
+	iSoLuong INT,
+	fGiaTien FLOAT,
+	CONSTRAINT PK_DVT PRIMARY KEY(sMaSP,sTenDVT)
+)
+GO
 
 CREATE TABLE tblLoaiHang (
 	sLoaiHang VARCHAR(30) PRIMARY KEY,
@@ -93,7 +99,7 @@ CREATE TABLE Account (
 INSERT INTO Account VALUES ('admin', 'admin', 'admin@gmail.com')
 --Ràng buộc-------------------------------------------------------------------------------------------------------
 ALTER TABLE tblSanPham ADD CONSTRAINT FK_SP_LH FOREIGN KEY(sLoaiHang) REFERENCES tblLoaiHang(sLoaiHang);
-ALTER TABLE tblSanPham ADD CONSTRAINT FK_SP_DVT FOREIGN KEY(sMaDVT) REFERENCES tblDonViTinh(sMaDVT);
+ALTER TABLE tblDonViTinh ADD CONSTRAINT FK_DVT_SP FOREIGN KEY(sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NCC FOREIGN KEY(sMaNCC) REFERENCES tblNhaCungCap(sMaNCC);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NV FOREIGN KEY(sMaNV) REFERENCES tblNhanVien(sMaNV);
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT PK_NhapHang PRIMARY KEY (sMaHDNH,sMaSP);
@@ -121,6 +127,17 @@ INSERT INTO tblKhachHang VALUES
 ('KH009',N'Nguyễn Ngọc Sơn',1,N'96 Định Công, Hoàng Mai','0983404587',0),
 ('KH010',N'Lê Thảo Linh',0,N'193 Vĩnh Hưng, Hai Bà Trưng','0273676482',0)
 
+INSERT INTO tblLoaiHang VALUES
+('LH001',N'Đồ ăn'),
+('LH002',N'Đồ uống'),
+('LH003',N'Đồ gia dụng'),
+('LH004',N'Đồ điện tử')
+
+INSERT INTO tblSanPham VALUES
+('SP0001',N'Bim bim oishi cay','LH001'),
+('SP0002',N'7up vị chanh chai 390ml','LH002'),
+('SP0003',N'Pepsi chanh không calo 330ml','LH002'),
+('SP0004',N'Pepsi không calo 330ml','LH002')
 /*
 SELECT 
     sHoTen AS [Họ tên],

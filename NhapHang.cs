@@ -149,8 +149,9 @@ namespace BTL_HSK_ver_1
         {
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
-                sql.Open();        
-                string query = $"SELECT * FROM tblSanPham WHERE sTenSP = N'{cboMaSP.Text}' AND sDonViTinh = N'{cboDVT.Text}'";
+                sql.Open();
+                string query = "";
+                /*string query = $"SELECT * FROM tblSanPham WHERE sTenSP = N'{cboMaSP.Text}' AND sDonViTinh = N'{cboDVT.Text}'";
                 bool i = false;
                 //Lấy mã sản phẩm
                 string masp = "";
@@ -164,8 +165,8 @@ namespace BTL_HSK_ver_1
                             i = true;
                         }
                     }
-                }
-
+                }*/
+                string masp = cboMaSP.Text;
                 //Lấy mã loại hàng
                 string malh = "";
                 query = $"SELECT * FROM tblLoaiHang WHERE sTenHang = N'{cboLoaiHang.Text}'";
@@ -181,7 +182,7 @@ namespace BTL_HSK_ver_1
                 }
 
                 //Xử lý nếu mặt hàng đã tồn tại thì cộng vào kho còn không thì tạo mới
-                if (i==true)
+               /* if (i==true)
                 {
                     string soluong = Convert.ToInt32(nudSoLuong.Value).ToString();
                     query = $"UPDATE tblSanPham SET iSoLuong = iSoLuong + {soluong} WHERE sMaSP = '{masp}'";
@@ -207,7 +208,7 @@ namespace BTL_HSK_ver_1
                     {
                         cmd.ExecuteNonQuery();
                     }
-                }
+                }*/
 
                 //Lấy mã nhà cung cấp
                 string mancc = "";
@@ -219,7 +220,7 @@ namespace BTL_HSK_ver_1
                         if (reader.Read())
                         {
                             mancc = reader.GetString(0);
-                            i = true;
+                            //i = true;
                         }
                     }
                 }
@@ -331,13 +332,36 @@ namespace BTL_HSK_ver_1
             }
             if (cboMaSP.Text.Trim() != "")
             {
-                cboMaSP.Items.Clear();
                 string masp = cboMaSP.Text.ToLower();
+                cboMaSP.Items.Clear();
                 foreach (string item in listSP)
                 {
                     if (item.ToLower().Contains(masp))
                     {
                         cboMaSP.Items.Add(item);
+                    }
+                }
+            }
+        }
+
+        private void cboMaSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboMaSP_TextChanged(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM tblSanPham WHERE sMaSP = '{cboMaSP.Text}'";
+            using (SqlConnection sql = ConnectData.GetSqlConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            
+                        }
                     }
                 }
             }

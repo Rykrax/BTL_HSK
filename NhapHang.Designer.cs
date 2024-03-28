@@ -38,7 +38,7 @@
             this.btnNhapLai = new System.Windows.Forms.Button();
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTenSP = new System.Windows.Forms.TextBox();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.cboMaSP = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -145,7 +145,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtTenSP);
             this.panel1.Controls.Add(this.lblTenSP);
             this.panel1.Controls.Add(this.cboMaSP);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -171,12 +171,12 @@
             this.panel1.Size = new System.Drawing.Size(1000, 358);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // txtTenSP
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 30);
-            this.textBox1.TabIndex = 24;
+            this.txtTenSP.Location = new System.Drawing.Point(185, 71);
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.Size = new System.Drawing.Size(297, 30);
+            this.txtTenSP.TabIndex = 24;
             // 
             // lblTenSP
             // 
@@ -195,6 +195,8 @@
             this.cboMaSP.Size = new System.Drawing.Size(297, 30);
             this.cboMaSP.TabIndex = 22;
             this.cboMaSP.DropDown += new System.EventHandler(this.cboMaSP_DropDown);
+            this.cboMaSP.SelectedIndexChanged += new System.EventHandler(this.cboMaSP_SelectedIndexChanged);
+            this.cboMaSP.TextChanged += new System.EventHandler(this.cboMaSP_TextChanged);
             // 
             // pictureBox1
             // 
@@ -364,7 +366,7 @@
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.ComboBox cboMaNV;
         private System.Windows.Forms.ComboBox cboMaSP;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Label lblTenSP;
     }
 }
