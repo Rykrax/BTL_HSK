@@ -138,6 +138,33 @@ INSERT INTO tblSanPham VALUES
 ('SP0002',N'7up vị chanh chai 390ml','LH002'),
 ('SP0003',N'Pepsi chanh không calo 330ml','LH002'),
 ('SP0004',N'Pepsi không calo 330ml','LH002')
+
+INSERT INTO tblDonViTinh VALUES
+('SP0001',N'Gói',500,4500),
+('SP0001',N'Thùng',20,80000),
+('SP0002',N'Chai',250,6700),
+('SP0002',N'Lốc 6 Chai',200,37500),
+('SP0002',N'Thùng',10,142000)
+
+INSERT INTO tblNhaCungCap VALUES
+('NCC284',N'Công ty TNHH Việt Nam VIFOTEX'),
+('NCC937',N'Tập đoàn Tân Hiệp Phát'),
+('NCC837',N'Công ty TNHH Red Bull'),
+('NCC874',N'Công ty TNHH Lavie'),
+('NCC746',N'Công Ty Hanoifood '),
+('NCC664',N'Công ty TNHH Thực phẩm Hữu Nghị'),
+('NCC346',N'Công ty Cổ phần Zin Food'),
+('NCC623',N'Công Ty TNHH Tập Đoàn Vinecook'),
+('NCC236',N'Công Ty TNHH FDI Kim Anh'),
+('NCC772',N'Công Ty TNHH Đông Dương Sài Gòn')
+
+INSERT INTO tblNhanVien VALUES
+('NV001',N'Phạm Thành Long',1,'2023-12-03',3500000),
+('NV002',N'Nguyễn Hoàng Long',1,'2022-09-21',5600000),
+('NV003',N'Phạm Quỳnh Như',0,'2023-12-13',4500000),
+('NV004',N'Dương Thành An',1,'2024-01-11',5500000),
+('NV005',N'Nguyễn Tuấn Anh',1,'2024-02-12',4500000),
+('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000)
 /*
 SELECT 
     sHoTen AS [Họ tên],

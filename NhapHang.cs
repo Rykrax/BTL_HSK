@@ -21,28 +21,6 @@ namespace BTL_HSK_ver_1
             InitializeComponent();
         }
 
-
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn quay lại?"
-                , "Xác nhận"
-                , MessageBoxButtons.YesNo
-                , MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void btnNhapLai_Click(object sender, EventArgs e)
-        {
-            cboMaSP.Text = "";
-            cboDVT.Items.Clear();
-            txtGiaNhap.Text = "";
-            nudSoLuong.Value = 0;
-            dtpTime.Value = DateTime.Now;
-        }
-
         private void frmNhapHang_Load(object sender, EventArgs e)
         {
             using (SqlConnection sql = ConnectData.GetSqlConnection())
@@ -53,7 +31,7 @@ namespace BTL_HSK_ver_1
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             cboMaSP.Items.Add(reader.GetString(0));
                         }
@@ -83,25 +61,15 @@ namespace BTL_HSK_ver_1
                         }
                     }
                 }
-                sql.Close();
-            }
-        }
 
-        private void txtTenHang_TextChanged(object sender, EventArgs e)
-        {
-            ResetForm();
-            using (SqlConnection sql = ConnectData.GetSqlConnection())
-            {
-                sql.Open();
-                string query = "SELECT * FROM tblSanPham WHERE sTenSP = @tensp";
-                using (SqlCommand cmd = new SqlCommand(query,sql))
+                query = "SELECT * FROM tblLoaiHang";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
                 {
-                    cmd.Parameters.AddWithValue("@tensp", cboMaSP.Text);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while( reader.Read())
+                        while (reader.Read())
                         {
-                            cboDVT.Items.Add(reader.GetString(3));
+                            cboLoaiHang.Items.Add(reader.GetString(1));
                         }
                     }
                 }
@@ -109,9 +77,31 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void frmNhapHang_TextChanged(object sender, EventArgs e)
+        private void btnQuayLai_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn quay lại?"
+                , "Xác nhận"
+                , MessageBoxButtons.YesNo
+                , MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
+        private void btnNhapLai_Click(object sender, EventArgs e)
+        {
+            cboMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtGiaNhap.Text = "";
+            cboLoaiHang.Text = "";
+            cboLoaiHang.Items.Clear();
+            cboNCC.Text = "";
+            nudSoLuong.Value = 0;
+            cboDVT.Items.Clear();
+            cboMaNV.Text = "";
+            txtTen.Text = "";
+            dtpTime.Value = DateTime.Now;
         }
 
         private void cboMaNV_TextChanged(object sender, EventArgs e)
@@ -138,123 +128,7 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void ResetForm()
-        {
-            cboDVT.Text = "";
-            cboDVT.Items.Clear();
-            txtTen.Text = "";
-        }
-
-        private void btnNhapHang_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection sql = ConnectData.GetSqlConnection())
-            {
-                sql.Open();
-                string query = "";
-                /*string query = $"SELECT * FROM tblSanPham WHERE sTenSP = N'{cboMaSP.Text}' AND sDonViTinh = N'{cboDVT.Text}'";
-                bool i = false;
-                //Lấy mã sản phẩm
-                string masp = "";
-                using (SqlCommand cmd = new SqlCommand(query,sql))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            masp = reader.GetString(0);
-                            i = true;
-                        }
-                    }
-                }*/
-                string masp = cboMaSP.Text;
-                //Lấy mã loại hàng
-                string malh = "";
-                query = $"SELECT * FROM tblLoaiHang WHERE sTenHang = N'{cboLoaiHang.Text}'";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            malh = reader.GetString(0);
-                        }
-                    }
-                }
-
-                //Xử lý nếu mặt hàng đã tồn tại thì cộng vào kho còn không thì tạo mới
-               /* if (i==true)
-                {
-                    string soluong = Convert.ToInt32(nudSoLuong.Value).ToString();
-                    query = $"UPDATE tblSanPham SET iSoLuong = iSoLuong + {soluong} WHERE sMaSP = '{masp}'";
-                    using (SqlCommand cmd = new SqlCommand(query,sql))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                else
-                {
-                    masp = SinhMaNgauNhien("SP");
-                    while(true)
-                    {
-                        if (KiemTraMa("sMaSP", masp, "tblSanPham") == true)
-                        {
-                            masp = SinhMaNgauNhien("SP");
-                        }
-                        else break;
-                    }
-                    query = "INSERT INTO tblSanPham " +
-                           $"VALUES ('{masp}',N'{cboMaSP.Text}','{malh}', N'{cboDVT.Text}', {Convert.ToInt32(nudSoLuong.Value).ToString()}, {txtGiaNhap.Text})";
-                    using (SqlCommand cmd = new SqlCommand(query, sql))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }*/
-
-                //Lấy mã nhà cung cấp
-                string mancc = "";
-                query = $"SELECT * FROM tblNhaCungCap WHERE sTenNCC = N'{cboNCC.Text}'";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            mancc = reader.GetString(0);
-                            //i = true;
-                        }
-                    }
-                }
-
-                //Tạo mã hdnh ngẫu nhiên :>>
-                string madnh = SinhMaNgauNhien("HDNH");
-                while (true)
-                {
-                    if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
-                    {
-                        madnh = SinhMaNgauNhien("HDNH");
-                    }
-                    else break;
-
-                }
-                DateTime time = dtpTime.Value;
-                string ngayThang = time.ToString("yyyy-MM-dd");
-                query = "INSERT INTO tblDonNhapHang " +
-                        $"VALUES ('{madnh}','{cboMaNV.Text}','{mancc}','{ngayThang}','0')";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                query = "INSERT INTO tblChiTietDNH " +
-                        $"VALUES ('{madnh}','{masp}',{Convert.ToInt32(nudSoLuong.Value).ToString()},N'{cboDVT.Text}',{txtGiaNhap.Text})";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Nhập hàng thành công!");
-                sql.Close();
-            }
-        }
-
+        //Tạo hàm kiểm tra mã với random vjp lỏ :>>
         public string SinhMaNgauNhien(string kihieu)
         {
             Random random = new Random();
@@ -271,7 +145,7 @@ namespace BTL_HSK_ver_1
             {
                 sql.Open();
                 string query = $"SELECT * FROM {bangKiemTra} WHERE {tenMaKiemTra} = '{maKiemTra}'";
-                using (SqlCommand cmd = new SqlCommand(query,sql))
+                using (SqlCommand cmd = new SqlCommand(query, sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -284,31 +158,7 @@ namespace BTL_HSK_ver_1
             return i;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            /*if (KiemTraMa("sMaSP", "SP001", "tblSanPham"))
-            {
-                MessageBox.Show("Đã tồn tại");
-            }
-            else MessageBox.Show("Chưa tồn tại");*/
-           /* string madnh = SinhMaNgauNhien("HDNH");
-            while (true)
-            {
-                if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
-                {
-                    madnh = SinhMaNgauNhien("HDNH");
-                }
-                else break;
-
-            }
-           */
-            //MessageBox.Show(cboDVT.Text);
-            frmDanhSachNhanVien form = new frmDanhSachNhanVien();
-            //this.Hide();
-            form.ShowDialog();
-            form = null;
-        }
-
+        //Xử lý lọc các mã gần giống
         private void cboMaSP_DropDown(object sender, EventArgs e)
         {
             cboMaSP.Items.Clear();
@@ -344,26 +194,159 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void cboMaSP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cboMaSP_TextChanged(object sender, EventArgs e)
         {
-            string query = $"SELECT * FROM tblSanPham WHERE sMaSP = '{cboMaSP.Text}'";
+            cboDVT.Text = "";
+            cboDVT.Items.Clear();
+            txtTenSP.Text = "";
+            txtTenSP.ReadOnly = false;
+            string query = "";
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
+                sql.Open();
+                query = $"SELECT * FROM tblSanPham WHERE sMaSP = '{cboMaSP.Text}'";
                 using (SqlCommand cmd = new SqlCommand(query, sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            
+                            txtTenSP.ReadOnly = true;
+                            txtTenSP.Text = reader.GetString(1);
                         }
                     }
                 }
+
+                query = $"SELECT * FROM tblDonViTinh WHERE sMaSP = '{cboMaSP.Text}'";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cboDVT.Items.Add(reader.GetString(1));
+                        }
+                    }
+                }
+                sql.Close();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            /*if (KiemTraMa("sMaSP", "SP001", "tblSanPham"))
+            {
+                MessageBox.Show("Đã tồn tại");
+            }
+            else MessageBox.Show("Chưa tồn tại");*/
+            /* string madnh = SinhMaNgauNhien("HDNH");
+             while (true)
+             {
+                 if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
+                 {
+                     madnh = SinhMaNgauNhien("HDNH");
+                 }
+                 else break;
+
+             }
+            */
+            //MessageBox.Show(cboDVT.Text);
+            frmDanhSachNhanVien form = new frmDanhSachNhanVien();
+            //this.Hide();
+            form.ShowDialog();
+            form = null;
+        }
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sql = ConnectData.GetSqlConnection())
+            {
+                sql.Open();
+                string query = "";
+                string masp = cboMaSP.Text;
+
+                //Lấy mã loại hàng
+                string malh = "";
+                query = $"SELECT * FROM tblLoaiHang WHERE sTenHang = N'{cboLoaiHang.Text}'";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            malh = reader.GetString(0);
+                        }
+                    }
+                }
+
+
+                //Xử lý nếu mặt hàng đã tồn tại thì cộng vào kho còn không thì tạo mới
+                int i = 0;
+                query = $"SELECT COUNT(*) FROM tblDonViTinh WHERE sMaSP = '{masp}' AND sTenDVT = N'{cboDVT.Text}'";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    i = (int)cmd.ExecuteScalar();
+                }
+
+                if (i>0)
+                {
+                    string soluong = Convert.ToInt32(nudSoLuong.Value).ToString();
+                    query = $"UPDATE tblDonViTinh SET iSoLuong = iSoLuong + {soluong} WHERE sMaSP = '{masp}' AND sTenDVT = N'{cboDVT.Text}'";
+                    using (SqlCommand cmd = new SqlCommand(query, sql))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    query = $"INSERT INTO tblDonViTinh " +
+                            $"VALUES ('{masp}',N'{cboDVT.Text}',{Convert.ToInt32(nudSoLuong.Value).ToString()}, '{txtGiaNhap.Text}')";
+                    using (SqlCommand cmd = new SqlCommand(query, sql))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                //Lấy mã nhà cung cấp
+                string mancc = "";
+                query = $"SELECT * FROM tblNhaCungCap WHERE sTenNCC = N'{cboNCC.Text}'";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            mancc = reader.GetString(0);
+                        }
+                    }
+                }
+
+                //Tạo mã hdnh ngẫu nhiên :>>
+                string madnh = SinhMaNgauNhien("HDNH");
+                while (true)
+                {
+                    if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
+                    {
+                        madnh = SinhMaNgauNhien("HDNH");
+                    }
+                    else break;
+
+                }
+                DateTime time = dtpTime.Value;
+                string ngayThang = time.ToString("yyyy-MM-dd");
+                query = "INSERT INTO tblDonNhapHang " +
+                        $"VALUES ('{madnh}','{cboMaNV.Text}','{mancc}','{ngayThang}','0')";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                query = "INSERT INTO tblChiTietDNH " +
+                        $"VALUES ('{madnh}','{masp}',{Convert.ToInt32(nudSoLuong.Value).ToString()},N'{cboDVT.Text}',{txtGiaNhap.Text})";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Nhập hàng thành công!");
+                sql.Close();
             }
         }
     }

@@ -195,7 +195,6 @@
             this.cboMaSP.Size = new System.Drawing.Size(297, 30);
             this.cboMaSP.TabIndex = 22;
             this.cboMaSP.DropDown += new System.EventHandler(this.cboMaSP_DropDown);
-            this.cboMaSP.SelectedIndexChanged += new System.EventHandler(this.cboMaSP_SelectedIndexChanged);
             this.cboMaSP.TextChanged += new System.EventHandler(this.cboMaSP_TextChanged);
             // 
             // pictureBox1
@@ -332,7 +331,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập hàng";
             this.Load += new System.EventHandler(this.frmNhapHang_Load);
-            this.TextChanged += new System.EventHandler(this.frmNhapHang_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
