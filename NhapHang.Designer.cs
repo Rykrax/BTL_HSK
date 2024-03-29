@@ -41,7 +41,7 @@
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.cboMaSP = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picDSNV = new System.Windows.Forms.PictureBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.cboMaNV = new System.Windows.Forms.ComboBox();
             this.lblMaNV = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.btnNhapTiep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSNV)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSoLuong
@@ -149,7 +149,7 @@
             this.panel1.Controls.Add(this.txtTenSP);
             this.panel1.Controls.Add(this.lblTenSP);
             this.panel1.Controls.Add(this.cboMaSP);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.picDSNV);
             this.panel1.Controls.Add(this.txtTen);
             this.panel1.Controls.Add(this.cboMaNV);
             this.panel1.Controls.Add(this.lblMaNV);
@@ -198,17 +198,17 @@
             this.cboMaSP.DropDown += new System.EventHandler(this.cboMaSP_DropDown);
             this.cboMaSP.TextChanged += new System.EventHandler(this.cboMaSP_TextChanged);
             // 
-            // pictureBox1
+            // picDSNV
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(926, 177);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picDSNV.BackColor = System.Drawing.Color.Transparent;
+            this.picDSNV.Image = ((System.Drawing.Image)(resources.GetObject("picDSNV.Image")));
+            this.picDSNV.Location = new System.Drawing.Point(926, 177);
+            this.picDSNV.Name = "picDSNV";
+            this.picDSNV.Size = new System.Drawing.Size(32, 30);
+            this.picDSNV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDSNV.TabIndex = 21;
+            this.picDSNV.TabStop = false;
+            this.picDSNV.Click += new System.EventHandler(this.picDSNV_Click);
             // 
             // txtTen
             // 
@@ -346,7 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDSNV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,7 +372,7 @@
         private System.Windows.Forms.ComboBox cboNCC;
         private System.Windows.Forms.Label lblMaNV;
         private System.Windows.Forms.Label lblTen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picDSNV;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.ComboBox cboMaNV;
         private System.Windows.Forms.ComboBox cboMaSP;

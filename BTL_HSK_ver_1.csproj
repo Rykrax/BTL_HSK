@@ -85,6 +85,7 @@
     <Compile Include="HoaDon.Designer.cs">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="iChuyenDuLieu.cs" />
     <Compile Include="Modify.cs" />
     <Compile Include="NhapHang.cs">
       <SubType>Form</SubType>

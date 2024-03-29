@@ -14,13 +14,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace BTL_HSK_ver_1
 {
     
-    public partial class frmNhapHang : Form
+    public partial class frmNhapHang : Form, iChuyenDuLieu
     {
         List<string> listSP = new List<string>();
         private string madnh;
         public frmNhapHang()
         {
             InitializeComponent();
+        }
+
+        public void XuLyMaNV(string manv)
+        {
+            cboMaNV.Text = manv;            
         }
 
         private void frmNhapHang_Load(object sender, EventArgs e)
@@ -171,7 +176,7 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        //Tạo hàm kiểm tra mã với random vjp lỏ :>>
+        //Tạo hàm kiểm tra mã với random lỏ :>>
         public string SinhMaNgauNhien(string kihieu)
         {
             Random random = new Random();
@@ -275,32 +280,23 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void picDSNV_Click(object sender, EventArgs e)
         {
-            /*if (KiemTraMa("sMaSP", "SP001", "tblSanPham"))
-            {
-                MessageBox.Show("Đã tồn tại");
-            }
-            else MessageBox.Show("Chưa tồn tại");*/
-            /* string madnh = SinhMaNgauNhien("HDNH");
-             while (true)
-             {
-                 if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
-                 {
-                     madnh = SinhMaNgauNhien("HDNH");
-                 }
-                 else break;
-
-             }
-            */
-            //MessageBox.Show(cboDVT.Text);
-            frmDanhSachNhanVien form = new frmDanhSachNhanVien();
+            frmDanhSachNhanVien form = new frmDanhSachNhanVien(this);
             //this.Hide();
             form.ShowDialog();
             form = null;
+            
         }
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
+            if (cboMaSP.Text.Trim() == "") { MessageBox.Show("Chưa nhập mã sản phẩm!"); return; }
+            if (txtTenSP.Text.Trim() == "") { MessageBox.Show("Chưa nhập tên mã sản phẩm!"); return; }
+            if (txtGiaNhap.Text.Trim() == "") { MessageBox.Show("Chưa nhập giá tiền!"); return; }
+            if (cboLoaiHang.Text.Trim() == "") { MessageBox.Show("Chưa chọn loại hàng!"); return; }
+            if (cboDVT.Text.Trim() == "") { MessageBox.Show("Chưa chọn đơn vị tính"); return; }
+            if (cboMaNV.Text.Trim() == "") { MessageBox.Show("Mã nhân viên không được để trống"); return; }
+            if (txtTen.Text.Trim() == "") { MessageBox.Show("Tên nhân viên không được để trống"); return; }
             cboMaNV.Enabled = false;
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
