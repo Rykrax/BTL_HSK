@@ -165,6 +165,20 @@ INSERT INTO tblNhanVien VALUES
 ('NV004',N'Dương Thành An',1,'2024-01-11',5500000),
 ('NV005',N'Nguyễn Tuấn Anh',1,'2024-02-12',4500000),
 ('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000)
+
+CREATE TRIGGER [Cập nhật tổng tiền nhập hàng]
+ON tblChiTietDNH
+AFTER INSERT
+AS
+BEGIN
+    -- Cập nhật tổng tiền hàng cho mỗi hóa đơn nhập hàng được thêm vào
+    UPDATE tblDonNhapHang
+    SET fTongTienHang = (SELECT SUM(fGiaTien * iSoLuong) 
+                         FROM inserted 
+                         WHERE tblDonNhapHang.sMaHDNH = inserted.sMaHDNH)
+    WHERE tblDonNhapHang.sMaHDNH IN (SELECT sMaHDNH FROM inserted)
+END;
+
 /*
 SELECT 
     sHoTen AS [Họ tên],

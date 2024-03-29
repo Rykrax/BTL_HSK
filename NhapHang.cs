@@ -15,13 +15,29 @@ namespace BTL_HSK_ver_1
     
     public partial class frmNhapHang : Form
     {
-        List<string> listSP = new List<string>();  
+        List<string> listSP = new List<string>();
+        private string madnh;
         public frmNhapHang()
         {
             InitializeComponent();
         }
 
         private void frmNhapHang_Load(object sender, EventArgs e)
+        {
+            //Tạo mã hdnh ngẫu nhiên :>>
+            madnh = SinhMaNgauNhien("HDNH");
+            while (true)
+            {
+                if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
+                {
+                    madnh = SinhMaNgauNhien("HDNH");
+                }
+                else break;
+            }
+            LoadDuLieu();
+        }
+
+        private void LoadDuLieu()
         {
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
@@ -76,7 +92,6 @@ namespace BTL_HSK_ver_1
                 sql.Close();
             }
         }
-
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn quay lại?"
@@ -102,6 +117,7 @@ namespace BTL_HSK_ver_1
             cboMaNV.Text = "";
             txtTen.Text = "";
             dtpTime.Value = DateTime.Now;
+            LoadDuLieu();
         }
 
         private void cboMaNV_TextChanged(object sender, EventArgs e)
@@ -278,7 +294,6 @@ namespace BTL_HSK_ver_1
                     }
                 }
 
-
                 //Xử lý nếu mặt hàng đã tồn tại thì cộng vào kho còn không thì tạo mới
                 int i = 0;
                 query = $"SELECT COUNT(*) FROM tblDonViTinh WHERE sMaSP = '{masp}' AND sTenDVT = N'{cboDVT.Text}'";
@@ -298,6 +313,19 @@ namespace BTL_HSK_ver_1
                 }
                 else
                 {
+                    query = $"SELECT COUNT(*) FROM tblSanPham WHERE sMaSP = '{masp}'";
+                    using (SqlCommand cmd = new SqlCommand(query, sql))
+                    {
+                        int i1 = (int)cmd.ExecuteScalar();
+                        if (i1==0)
+                        {
+                            query = $"INSERT INTO tblSanPham VALUES ('{masp}',N'{txtTenSP.Text}','{malh}')";
+                            using (SqlCommand cmd_sub = new SqlCommand(query, sql))
+                            {
+                                cmd_sub.ExecuteNonQuery();
+                            }
+                        }
+                    }
                     query = $"INSERT INTO tblDonViTinh " +
                             $"VALUES ('{masp}',N'{cboDVT.Text}',{Convert.ToInt32(nudSoLuong.Value).ToString()}, '{txtGiaNhap.Text}')";
                     using (SqlCommand cmd = new SqlCommand(query, sql))
@@ -320,24 +348,23 @@ namespace BTL_HSK_ver_1
                     }
                 }
 
-                //Tạo mã hdnh ngẫu nhiên :>>
-                string madnh = SinhMaNgauNhien("HDNH");
-                while (true)
-                {
-                    if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
-                    {
-                        madnh = SinhMaNgauNhien("HDNH");
-                    }
-                    else break;
-
-                }
                 DateTime time = dtpTime.Value;
-                string ngayThang = time.ToString("yyyy-MM-dd");
-                query = "INSERT INTO tblDonNhapHang " +
-                        $"VALUES ('{madnh}','{cboMaNV.Text}','{mancc}','{ngayThang}','0')";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
+                int ii = 0;
+                query = $"SELECT COUNT(*) FROM tblDonNhapHang WHERE sMaHDNH = '{madnh}'";
+                using (SqlCommand cmd = new SqlCommand(query,sql))
                 {
-                    cmd.ExecuteNonQuery();
+                    ii = (int)cmd.ExecuteScalar();
+                }
+
+                if (ii==0)
+                {
+                    string ngayThang = time.ToString("yyyy-MM-dd");
+                    query = "INSERT INTO tblDonNhapHang " +
+                            $"VALUES ('{madnh}','{cboMaNV.Text}','{mancc}','{ngayThang}','0')";
+                    using (SqlCommand cmd = new SqlCommand(query, sql))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 query = "INSERT INTO tblChiTietDNH " +
                         $"VALUES ('{madnh}','{masp}',{Convert.ToInt32(nudSoLuong.Value).ToString()},N'{cboDVT.Text}',{txtGiaNhap.Text})";

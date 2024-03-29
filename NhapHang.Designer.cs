@@ -67,7 +67,7 @@
             this.lblSoLuong.Location = new System.Drawing.Point(562, 74);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(82, 22);
-            this.lblSoLuong.TabIndex = 4;
+            this.lblSoLuong.TabIndex = 7;
             this.lblSoLuong.Text = "Số lượng";
             // 
             // txtGiaNhap
@@ -75,7 +75,7 @@
             this.txtGiaNhap.Location = new System.Drawing.Point(185, 125);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(297, 30);
-            this.txtGiaNhap.TabIndex = 7;
+            this.txtGiaNhap.TabIndex = 12;
             // 
             // lblGia
             // 
@@ -84,7 +84,7 @@
             this.lblGia.Location = new System.Drawing.Point(31, 128);
             this.lblGia.Name = "lblGia";
             this.lblGia.Size = new System.Drawing.Size(81, 22);
-            this.lblGia.TabIndex = 1;
+            this.lblGia.TabIndex = 2;
             this.lblGia.Text = "Giá nhập";
             // 
             // lblDVT
@@ -94,7 +94,7 @@
             this.lblDVT.Location = new System.Drawing.Point(562, 24);
             this.lblDVT.Name = "lblDVT";
             this.lblDVT.Size = new System.Drawing.Size(99, 22);
-            this.lblDVT.TabIndex = 3;
+            this.lblDVT.TabIndex = 6;
             this.lblDVT.Text = "Đơn vị tính";
             // 
             // lblMaSP
@@ -140,7 +140,7 @@
             0});
             this.nudSoLuong.Name = "nudSoLuong";
             this.nudSoLuong.Size = new System.Drawing.Size(162, 30);
-            this.nudSoLuong.TabIndex = 8;
+            this.nudSoLuong.TabIndex = 17;
             // 
             // panel1
             // 
@@ -176,7 +176,7 @@
             this.txtTenSP.Location = new System.Drawing.Point(185, 71);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(297, 30);
-            this.txtTenSP.TabIndex = 24;
+            this.txtTenSP.TabIndex = 11;
             // 
             // lblTenSP
             // 
@@ -184,7 +184,7 @@
             this.lblTenSP.Location = new System.Drawing.Point(31, 74);
             this.lblTenSP.Name = "lblTenSP";
             this.lblTenSP.Size = new System.Drawing.Size(118, 22);
-            this.lblTenSP.TabIndex = 23;
+            this.lblTenSP.TabIndex = 1;
             this.lblTenSP.Text = "Tên sản phẩm";
             // 
             // cboMaSP
@@ -193,7 +193,7 @@
             this.cboMaSP.Location = new System.Drawing.Point(185, 21);
             this.cboMaSP.Name = "cboMaSP";
             this.cboMaSP.Size = new System.Drawing.Size(297, 30);
-            this.cboMaSP.TabIndex = 22;
+            this.cboMaSP.TabIndex = 10;
             this.cboMaSP.DropDown += new System.EventHandler(this.cboMaSP_DropDown);
             this.cboMaSP.TextChanged += new System.EventHandler(this.cboMaSP_TextChanged);
             // 
@@ -214,7 +214,7 @@
             this.txtTen.Location = new System.Drawing.Point(706, 177);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(214, 30);
-            this.txtTen.TabIndex = 20;
+            this.txtTen.TabIndex = 19;
             // 
             // cboMaNV
             // 
@@ -222,7 +222,7 @@
             this.cboMaNV.Location = new System.Drawing.Point(706, 125);
             this.cboMaNV.Name = "cboMaNV";
             this.cboMaNV.Size = new System.Drawing.Size(214, 30);
-            this.cboMaNV.TabIndex = 19;
+            this.cboMaNV.TabIndex = 18;
             this.cboMaNV.TextChanged += new System.EventHandler(this.cboMaNV_TextChanged);
             // 
             // lblMaNV
@@ -231,7 +231,7 @@
             this.lblMaNV.Location = new System.Drawing.Point(562, 128);
             this.lblMaNV.Name = "lblMaNV";
             this.lblMaNV.Size = new System.Drawing.Size(116, 22);
-            this.lblMaNV.TabIndex = 17;
+            this.lblMaNV.TabIndex = 8;
             this.lblMaNV.Text = "Mã nhân viên";
             // 
             // lblTen
@@ -240,7 +240,7 @@
             this.lblTen.Location = new System.Drawing.Point(562, 180);
             this.lblTen.Name = "lblTen";
             this.lblTen.Size = new System.Drawing.Size(103, 22);
-            this.lblTen.TabIndex = 16;
+            this.lblTen.TabIndex = 9;
             this.lblTen.Text = "Người nhập";
             // 
             // cboNCC
@@ -249,7 +249,7 @@
             this.cboNCC.Location = new System.Drawing.Point(185, 232);
             this.cboNCC.Name = "cboNCC";
             this.cboNCC.Size = new System.Drawing.Size(297, 30);
-            this.cboNCC.TabIndex = 15;
+            this.cboNCC.TabIndex = 14;
             // 
             // lblNCC
             // 
@@ -257,7 +257,7 @@
             this.lblNCC.Location = new System.Drawing.Point(31, 235);
             this.lblNCC.Name = "lblNCC";
             this.lblNCC.Size = new System.Drawing.Size(116, 22);
-            this.lblNCC.TabIndex = 13;
+            this.lblNCC.TabIndex = 4;
             this.lblNCC.Text = "Nhà cung cấp";
             // 
             // cboDVT
@@ -266,7 +266,7 @@
             this.cboDVT.Location = new System.Drawing.Point(706, 21);
             this.cboDVT.Name = "cboDVT";
             this.cboDVT.Size = new System.Drawing.Size(162, 30);
-            this.cboDVT.TabIndex = 12;
+            this.cboDVT.TabIndex = 16;
             // 
             // cboLoaiHang
             // 
@@ -275,7 +275,7 @@
             this.cboLoaiHang.Location = new System.Drawing.Point(185, 172);
             this.cboLoaiHang.Name = "cboLoaiHang";
             this.cboLoaiHang.Size = new System.Drawing.Size(297, 30);
-            this.cboLoaiHang.TabIndex = 11;
+            this.cboLoaiHang.TabIndex = 13;
             // 
             // lblLoaiHang
             // 
@@ -283,7 +283,7 @@
             this.lblLoaiHang.Location = new System.Drawing.Point(31, 180);
             this.lblLoaiHang.Name = "lblLoaiHang";
             this.lblLoaiHang.Size = new System.Drawing.Size(87, 22);
-            this.lblLoaiHang.TabIndex = 10;
+            this.lblLoaiHang.TabIndex = 3;
             this.lblLoaiHang.Text = "Loại hàng";
             // 
             // lblNgay
@@ -293,7 +293,7 @@
             this.lblNgay.Location = new System.Drawing.Point(31, 290);
             this.lblNgay.Name = "lblNgay";
             this.lblNgay.Size = new System.Drawing.Size(134, 22);
-            this.lblNgay.TabIndex = 2;
+            this.lblNgay.TabIndex = 5;
             this.lblNgay.Text = "Ngày nhập hàng";
             // 
             // dtpTime
@@ -303,7 +303,7 @@
             this.dtpTime.Location = new System.Drawing.Point(185, 285);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.Size = new System.Drawing.Size(225, 28);
-            this.dtpTime.TabIndex = 9;
+            this.dtpTime.TabIndex = 15;
             // 
             // btnQuayLai
             // 
