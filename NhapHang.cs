@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BTL_HSK_ver_1
 {
@@ -104,7 +105,7 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void btnNhapLai_Click(object sender, EventArgs e)
+        private void btnNhapTiep_Click(object sender, EventArgs e)
         {
             cboMaSP.Text = "";
             txtTenSP.Text = "";
@@ -114,6 +115,32 @@ namespace BTL_HSK_ver_1
             cboNCC.Text = "";
             nudSoLuong.Value = 0;
             cboDVT.Items.Clear();
+            cboNCC.Items.Clear();
+            dtpTime.Value = DateTime.Now;
+            LoadDuLieu();
+        }
+        private void btnDonNhapMoi_Click(object sender, EventArgs e)
+        {
+            madnh = SinhMaNgauNhien("HDNH");
+            while (true)
+            {
+                if (KiemTraMa("sMaHDNH", madnh, "tblDonNhapHang") == true)
+                {
+                    madnh = SinhMaNgauNhien("HDNH");
+                }
+                else break;
+            }
+            cboMaNV.Enabled = true;
+            cboMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtGiaNhap.Text = "";
+            cboLoaiHang.Text = "";
+            cboNCC.Text = "";
+            nudSoLuong.Value = 0;
+            cboLoaiHang.Items.Clear();
+            cboDVT.Items.Clear();
+            cboNCC.Items.Clear();
+            cboMaNV.Items.Clear();
             cboMaNV.Text = "";
             txtTen.Text = "";
             dtpTime.Value = DateTime.Now;
@@ -274,6 +301,7 @@ namespace BTL_HSK_ver_1
         }
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
+            cboMaNV.Enabled = false;
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();

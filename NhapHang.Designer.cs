@@ -35,7 +35,7 @@
             this.lblDVT = new System.Windows.Forms.Label();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.btnNhapHang = new System.Windows.Forms.Button();
-            this.btnNhapLai = new System.Windows.Forms.Button();
+            this.btnTaoMoi = new System.Windows.Forms.Button();
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnQuayLai = new System.Windows.Forms.Button();
+            this.btnNhapTiep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,7 +112,7 @@
             // btnNhapHang
             // 
             this.btnNhapHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Location = new System.Drawing.Point(268, 432);
+            this.btnNhapHang.Location = new System.Drawing.Point(173, 432);
             this.btnNhapHang.Name = "btnNhapHang";
             this.btnNhapHang.Size = new System.Drawing.Size(155, 47);
             this.btnNhapHang.TabIndex = 1;
@@ -119,16 +120,16 @@
             this.btnNhapHang.UseVisualStyleBackColor = true;
             this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
-            // btnNhapLai
+            // btnTaoMoi
             // 
-            this.btnNhapLai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapLai.Location = new System.Drawing.Point(498, 432);
-            this.btnNhapLai.Name = "btnNhapLai";
-            this.btnNhapLai.Size = new System.Drawing.Size(155, 47);
-            this.btnNhapLai.TabIndex = 2;
-            this.btnNhapLai.Text = "Nhập lại";
-            this.btnNhapLai.UseVisualStyleBackColor = true;
-            this.btnNhapLai.Click += new System.EventHandler(this.btnNhapLai_Click);
+            this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoMoi.Location = new System.Drawing.Point(622, 432);
+            this.btnTaoMoi.Name = "btnTaoMoi";
+            this.btnTaoMoi.Size = new System.Drawing.Size(155, 47);
+            this.btnTaoMoi.TabIndex = 2;
+            this.btnTaoMoi.Text = "Đơn nhập mới";
+            this.btnTaoMoi.UseVisualStyleBackColor = true;
+            this.btnTaoMoi.Click += new System.EventHandler(this.btnDonNhapMoi_Click);
             // 
             // nudSoLuong
             // 
@@ -308,7 +309,7 @@
             // btnQuayLai
             // 
             this.btnQuayLai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai.Location = new System.Drawing.Point(744, 421);
+            this.btnQuayLai.Location = new System.Drawing.Point(833, 432);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(155, 47);
             this.btnQuayLai.TabIndex = 3;
@@ -316,14 +317,25 @@
             this.btnQuayLai.UseVisualStyleBackColor = true;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
+            // btnNhapTiep
+            // 
+            this.btnNhapTiep.Location = new System.Drawing.Point(384, 432);
+            this.btnNhapTiep.Name = "btnNhapTiep";
+            this.btnNhapTiep.Size = new System.Drawing.Size(155, 47);
+            this.btnNhapTiep.TabIndex = 4;
+            this.btnNhapTiep.Text = "Nhập tiếp";
+            this.btnNhapTiep.UseVisualStyleBackColor = true;
+            this.btnNhapTiep.Click += new System.EventHandler(this.btnNhapTiep_Click);
+            // 
             // frmNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 521);
+            this.Controls.Add(this.btnNhapTiep);
             this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnNhapLai);
+            this.Controls.Add(this.btnTaoMoi);
             this.Controls.Add(this.btnNhapHang);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -346,7 +358,7 @@
         private System.Windows.Forms.Label lblDVT;
         private System.Windows.Forms.Label lblMaSP;
         private System.Windows.Forms.Button btnNhapHang;
-        private System.Windows.Forms.Button btnNhapLai;
+        private System.Windows.Forms.Button btnTaoMoi;
         private System.Windows.Forms.NumericUpDown nudSoLuong;
         private System.Windows.Forms.Panel panel1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -366,5 +378,6 @@
         private System.Windows.Forms.ComboBox cboMaSP;
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Label lblTenSP;
+        private System.Windows.Forms.Button btnNhapTiep;
     }
 }
