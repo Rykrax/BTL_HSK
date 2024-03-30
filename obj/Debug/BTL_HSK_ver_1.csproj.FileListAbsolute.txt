@@ -19,3 +19,4 @@ F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.QuanLyDatHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmNhapHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDonViChuyenDoi.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDanhSachNhanVien.resources
+F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmThongTinTaiKhoan.resources

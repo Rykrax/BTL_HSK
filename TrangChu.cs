@@ -72,5 +72,19 @@ namespace BTL_HSK_ver_1
             form = null;
             this.Show();
         }
+
+        private void frmTrangChu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThongTinTaiKhoan form = new frmThongTinTaiKhoan(cur_acc);
+            this.Hide();
+            form.ShowDialog();
+            form = null;
+            this.Show();
+        }
     }
 }

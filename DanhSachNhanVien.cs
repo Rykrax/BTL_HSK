@@ -55,18 +55,15 @@ namespace BTL_HSK_ver_1
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();
-                bool i = false;
                 string query = "SELECT sMaNV, sHoTen, CASE WHEN bGioiTinh = 1 THEN 'Nam' ELSE N'Nữ' END AS bGioiTinh, dNgayVaoLam, fLuongCoBan FROM tblNhanVien WHERE 1 = 1";
                 if (txtTenNV.Text.Trim() != "") query += " AND sHoTen COLLATE Vietnamese_CI_AI LIKE @tennv";
                 if (radNam.Checked == true)
                 {
                     query += " AND bGioiTinh = 1";
-                    i = true;
                 }
                 else if (radNu.Checked == true)
                 {
                     query += " AND bGioiTinh = 0";
-                    i = true;
                 }
                 using (SqlCommand cmd = new SqlCommand(query,sql))
                 {
