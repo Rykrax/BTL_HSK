@@ -73,12 +73,6 @@
     <Compile Include="DoiMatKhau.Designer.cs">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="DonViChuyenDoi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DonViChuyenDoi.Designer.cs">
-      <DependentUpon>DonViChuyenDoi.cs</DependentUpon>
-    </Compile>
     <Compile Include="HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +101,12 @@
     <Compile Include="QuanLyKhachHang.Designer.cs">
       <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLySanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLySanPham.Designer.cs">
+      <DependentUpon>QuanLySanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +114,12 @@
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="RegexCheck.cs" />
+    <Compile Include="ThongTinSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinSanPham.Designer.cs">
+      <DependentUpon>ThongTinSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongTinTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +144,6 @@
     <EmbeddedResource Include="DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DonViChuyenDoi.resx">
-      <DependentUpon>DonViChuyenDoi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,8 +165,14 @@
     <EmbeddedResource Include="QuanLyKhachHang.resx">
       <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuanLySanPham.resx">
+      <DependentUpon>QuanLySanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuenMatKhau.resx">
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongTinSanPham.resx">
+      <DependentUpon>ThongTinSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinTaiKhoan.resx">
       <DependentUpon>ThongTinTaiKhoan.cs</DependentUpon>

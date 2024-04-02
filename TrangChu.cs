@@ -86,5 +86,14 @@ namespace BTL_HSK_ver_1
             form = null;
             this.Show();
         }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQuanLySanPham form = new frmQuanLySanPham();
+            this.Hide();
+            form.ShowDialog();
+            form = null;
+            this.Show();
+        }
     }
 }

@@ -85,7 +85,7 @@ CREATE TABLE tblChiTietDNH (
 	sMaHDNH VARCHAR(30) NOT NULL,
 	sMaSP VARCHAR(30) NOT NULL,
 	iSoLuong INT,
-	sDonViTinh NVARCHAR(50),
+	sDonViTinh NVARCHAR(50) NOT NULL,
 	fGiaTien FLOAT
 )
 GO
@@ -102,7 +102,7 @@ ALTER TABLE tblSanPham ADD CONSTRAINT FK_SP_LH FOREIGN KEY(sLoaiHang) REFERENCES
 ALTER TABLE tblDonViTinh ADD CONSTRAINT FK_DVT_SP FOREIGN KEY(sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NCC FOREIGN KEY(sMaNCC) REFERENCES tblNhaCungCap(sMaNCC);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NV FOREIGN KEY(sMaNV) REFERENCES tblNhanVien(sMaNV);
-ALTER TABLE tblChiTietDNH ADD CONSTRAINT PK_NhapHang PRIMARY KEY (sMaHDNH,sMaSP);
+ALTER TABLE tblChiTietDNH ADD CONSTRAINT PK_NhapHang PRIMARY KEY (sMaHDNH,sMaSP,sDonViTinh);
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_SP FOREIGN KEY (sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_DNH FOREIGN KEY(sMaHDNH) REFERENCES tblDonNhapHang(sMaHDNH);
 ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_NV FOREIGN KEY(sMaNV) REFERENCES tblNhanVien(sMaNV);
@@ -134,17 +134,17 @@ INSERT INTO tblLoaiHang VALUES
 ('LH004',N'Đồ điện tử')
 
 INSERT INTO tblSanPham VALUES
-('SP0001',N'Bim bim oishi cay','LH001'),
-('SP0002',N'7up vị chanh chai 390ml','LH002'),
-('SP0003',N'Pepsi chanh không calo 330ml','LH002'),
-('SP0004',N'Pepsi không calo 330ml','LH002')
+('SP0001',N'Bim bim oishi cay','LH001',''),
+('SP0002',N'7up vị chanh chai 390ml','LH002',''),
+('SP0003',N'Pepsi chanh không calo 330ml','LH002',''),
+('SP0004',N'Pepsi không calo 330ml','LH002','')
 
-INSERT INTO tblDonViTinh VALUES
-('SP0001',N'Gói',500,4500),
-('SP0001',N'Thùng',20,80000),
-('SP0002',N'Chai',250,6700),
-('SP0002',N'Lốc 6 Chai',200,37500),
-('SP0002',N'Thùng',10,142000)
+--INSERT INTO tblDonViTinh VALUES
+--('SP0001',N'Gói',500,4500),
+--('SP0001',N'Thùng',20,80000),
+--('SP0002',N'Chai',250,6700),
+--('SP0002',N'Lốc 6 Chai',200,37500),
+--('SP0002',N'Thùng',10,142000)
 
 INSERT INTO tblNhaCungCap VALUES
 ('NCC284',N'Công ty TNHH Việt Nam VIFOTEX'),
@@ -166,19 +166,61 @@ INSERT INTO tblNhanVien VALUES
 ('NV005',N'Nguyễn Tuấn Anh',1,'2024-02-12',4500000),
 ('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000)
 
-CREATE TRIGGER [Cập nhật tổng tiền nhập hàng]
-ON tblChiTietDNH
-AFTER INSERT
-AS
-BEGIN
-    -- Cập nhật tổng tiền hàng cho mỗi hóa đơn nhập hàng được thêm vào
-    UPDATE tblDonNhapHang
-    SET fTongTienHang = (SELECT SUM(fGiaTien * iSoLuong) 
-                         FROM inserted 
-                         WHERE tblDonNhapHang.sMaHDNH = inserted.sMaHDNH)
-    WHERE tblDonNhapHang.sMaHDNH IN (SELECT sMaHDNH FROM inserted)
-END;
+--CREATE TRIGGER [Cập nhật tổng tiền nhập hàng]
+--ON tblChiTietDNH
+--AFTER INSERT
+--AS
+--BEGIN
+--    -- Cập nhật tổng tiền hàng cho mỗi hóa đơn nhập hàng được thêm vào
+--    UPDATE tblDonNhapHang
+--    SET fTongTienHang = (SELECT SUM(fGiaTien * iSoLuong) 
+--                         FROM inserted 
+--                         WHERE tblDonNhapHang.sMaHDNH = inserted.sMaHDNH)
+--    WHERE tblDonNhapHang.sMaHDNH IN (SELECT sMaHDNH FROM inserted)
+--END;
 
+ALTER PROC [Danh sách sản phẩm]
+AS
+BEGIN	
+	SELECT sMaSP, sTenSP, sTenHang
+	FROM tblSanPham AS sp
+	JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang
+END
+
+EXEC [Danh sách sản phẩm]
+
+--SELECT ctnh.sMaSP, sp.sTenSP, ctnh.fGiaTien
+--FROM tblChiTietDNH ctnh
+--INNER JOIN tblSanPham sp ON ctnh.sMaSP = sp.sMaSP
+--INNER JOIN tblDonNhapHang dnh ON ctnh.sMaHDNH = dnh.sMaHDNH
+--WHERE dvt.sTenDVT = N'Chai'
+--AND dnh.dNgayNhapHang = (
+--    SELECT MAX(dNgayNhapHang)
+--    FROM tblDonNhapHang
+--)
+
+--SELECT ctnh.sMaSP, sp.sTenSP, ctnh.fGiaTien
+--FROM tblSanPham sp
+--INNER JOIN tblChiTietDNH ctnh ON sp.sMaSP = ctnh.sMaSP
+--INNER JOIN tblDonNhapHang dnh ON ctnh.sMaHDNH = dnh.sMaHDNH
+--INNER JOIN tblDonViTinh dvt ON sp.sMaSP = dvt.sMaSP
+--WHERE dvt.sTenDVT = N'lốc 6 Chai'
+--AND dnh.dNgayNhapHang = (
+--    SELECT MAX(dNgayNhapHang)
+--    FROM tblDonNhapHang
+--)
+--SELECT TOP 10 c.fGiaTien
+--FROM tblChiTietDNH c
+--JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
+--WHERE c.sMaSP = 'SP0001' 
+--AND c.sDonViTinh = N'Thùng'
+--ORDER BY d.dNgayNhapHang DESC
+
+--SELECT TOP 10 c.sMaSP, c.fGiaTien
+--FROM tblChiTietDNH c
+--JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
+--WHERE c.sDonViTinh = N'Thùng'
+--ORDER BY d.dNgayNhapHang DESC
 /*
 SELECT 
     sHoTen AS [Họ tên],

@@ -142,6 +142,7 @@
             this.nudSoLuong.Name = "nudSoLuong";
             this.nudSoLuong.Size = new System.Drawing.Size(162, 30);
             this.nudSoLuong.TabIndex = 17;
+            this.nudSoLuong.ValueChanged += new System.EventHandler(this.nudSoLuong_ValueChanged);
             // 
             // panel1
             // 

@@ -397,8 +397,24 @@ namespace BTL_HSK_ver_1
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Nhập hàng thành công!");
+                cboMaSP.Text = "";
+                txtTenSP.Text = "";
+                txtGiaNhap.Text = "";
+                cboLoaiHang.Text = "";
+                cboLoaiHang.Items.Clear();
+                cboNCC.Text = "";
+                nudSoLuong.Value = 0;
+                cboDVT.Items.Clear();
+                cboNCC.Items.Clear();
+                dtpTime.Value = DateTime.Now;
+                LoadDuLieu();
                 sql.Close();
             }
+        }
+
+        private void nudSoLuong_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
