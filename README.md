@@ -1,1 +1,2 @@
-Chạy file .sql trong folder SQL trước nhé 
+- Chạy file .sql trong folder SQL trước để tạo CSDL.
+- Chỉnh lại connection string trong App.config
