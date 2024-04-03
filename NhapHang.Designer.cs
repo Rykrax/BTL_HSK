@@ -332,6 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1154, 521);
             this.Controls.Add(this.btnNhapTiep);
             this.Controls.Add(this.btnQuayLai);

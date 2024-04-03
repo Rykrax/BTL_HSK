@@ -25,6 +25,8 @@ namespace BTL_HSK_ver_1
 
         private void frmThongTinSanPham_Load(object sender, EventArgs e)
         {
+            txtGiaBan.Enabled = false;
+            btnLuu.Enabled = false;
             if (allow == true)
             {
                 txtGiaBan.BringToFront();
@@ -61,16 +63,35 @@ namespace BTL_HSK_ver_1
                         while (reader.Read())
                         {
                             cboDVT.Items.Add(reader.GetString(1));
-                            //lblSoLuong.Text = reader.GetInt32(2).ToString();
                         }
                     }
                 }
+
+                /*query = "SELECT * FROM tblTiLeChuyenDoi WHERE sMaSP = @masp";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@masp", masp);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        int stt = 1;
+                        while (reader.Read())
+                        {
+                            ListViewItem item = lvwDanhSach.Items.Add(stt.ToString());
+                            item.SubItems.Add(reader.GetInt32(3).ToString());
+                            string s = $"1 {reader.GetString(1).ToString()} = {(reader.GetInt32(3).ToString())} {reader.GetString(2)}";
+                            item.SubItems.Add(s);
+                            stt++;
+                        }
+                    }
+                }*/
                 sql.Close();
             }
         }
 
         private void cboDVT_TextChanged(object sender, EventArgs e)
         {
+            btnLuu.Enabled = true;
+            txtGiaBan.Enabled = true;
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();
@@ -84,6 +105,8 @@ namespace BTL_HSK_ver_1
                         if (reader.Read())
                         {
                             lblSoLuong.Text = reader.GetInt32(2).ToString();
+                            txtGiaBan.Text = reader.GetDouble(3).ToString();
+                            lblGiaBan.Text = reader.GetDouble(3).ToString();
                         }
                     }
                 }
@@ -102,14 +125,47 @@ namespace BTL_HSK_ver_1
                     {
                         if (reader.Read())
                         {
-                            txtGiaBan.Text = reader.GetDouble(0).ToString();
-                            lblGiaBan.Text = reader.GetDouble(0).ToString();
                             lblGiaNhap.Text = reader.GetDouble(0).ToString();
                         }
                     }
                 }
                 sql.Close();
             }
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double giaTien = double.Parse(txtGiaBan.Text);
+                using (SqlConnection sql = ConnectData.GetSqlConnection())
+                {
+                    sql.Open();
+                    string query = "UPDATE tblDonViTinh\n" +
+                                   "SET fGiaTien = @giatien\n" +
+                                   "WHERE sMaSP = @masp AND sTenDVT = @dvt";
+                    using (SqlCommand cmd = new SqlCommand(@query, sql))
+                    {
+                        cmd.Parameters.AddWithValue("giatien", giaTien);
+                        cmd.Parameters.AddWithValue("@masp", masp);
+                        cmd.Parameters.AddWithValue("@dvt", cboDVT.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                    sql.Close();
+                }
+                MessageBox.Show("Cập nhật thành công");
+            }
+            catch
+            {
+                MessageBox.Show("Giá bán không phù hợp");
+                return;
+            }
+            
         }
     }
 }

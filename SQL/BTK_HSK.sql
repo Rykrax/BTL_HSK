@@ -90,6 +90,15 @@ CREATE TABLE tblChiTietDNH (
 )
 GO
 
+CREATE TABLE tblTiLeChuyenDoi (
+	sMaSP VARCHAR(30) NOT NULL,
+	sDVThuNhat NVARCHAR(50) NOT NULL,
+	sDVThuHai NVARCHAR(50) NOT NULL,
+	iTiLeChuyenDoi INT,
+	CONSTRAINT PK_TiLe PRIMARY KEY(sMaSP, sDVThuNhat, sDVThuHai)
+)
+GO
+
 CREATE TABLE Account (
 	sTaiKhoan VARCHAR(50) PRIMARY KEY,
 	sMatKhau VARCHAR(50),
@@ -245,3 +254,4 @@ END
 */
 
 
+SELECT * FROM tblTiLeChuyenDoi WHERE sMaSP = 'SP0001'

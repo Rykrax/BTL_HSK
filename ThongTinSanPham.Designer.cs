@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinSanPham));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSoLuong = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
@@ -42,8 +45,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSoLuong = new System.Windows.Forms.Label();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,8 +72,27 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(28, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 266);
+            this.panel1.Size = new System.Drawing.Size(950, 227);
             this.panel1.TabIndex = 17;
+            // 
+            // lblSoLuong
+            // 
+            this.lblSoLuong.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSoLuong.Location = new System.Drawing.Point(200, 173);
+            this.lblSoLuong.Name = "lblSoLuong";
+            this.lblSoLuong.Size = new System.Drawing.Size(232, 28);
+            this.lblSoLuong.TabIndex = 22;
+            this.lblSoLuong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(27, 177);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Số lượng";
             // 
             // lblTenSP
             // 
@@ -104,7 +126,7 @@
             // 
             this.lblLoaiHang.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLoaiHang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLoaiHang.Location = new System.Drawing.Point(680, 15);
+            this.lblLoaiHang.Location = new System.Drawing.Point(680, 19);
             this.lblLoaiHang.Name = "lblLoaiHang";
             this.lblLoaiHang.Size = new System.Drawing.Size(232, 28);
             this.lblLoaiHang.TabIndex = 17;
@@ -162,7 +184,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(518, 19);
+            this.label3.Location = new System.Drawing.Point(533, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 6;
@@ -195,30 +217,38 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Đơn vị tính";
             // 
-            // label7
+            // btnLuu
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 177);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 20);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Số lượng";
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
+            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLuu.Location = new System.Drawing.Point(313, 272);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(148, 44);
+            this.btnLuu.TabIndex = 18;
+            this.btnLuu.Text = "  Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // lblSoLuong
+            // btnDong
             // 
-            this.lblSoLuong.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSoLuong.Location = new System.Drawing.Point(200, 173);
-            this.lblSoLuong.Name = "lblSoLuong";
-            this.lblSoLuong.Size = new System.Drawing.Size(232, 28);
-            this.lblSoLuong.TabIndex = 22;
-            this.lblSoLuong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDong.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.Image")));
+            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDong.Location = new System.Drawing.Point(536, 272);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(148, 44);
+            this.btnDong.TabIndex = 19;
+            this.btnDong.Text = "   Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmThongTinSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 507);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1006, 355);
+            this.Controls.Add(this.btnDong);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -250,5 +280,7 @@
         private System.Windows.Forms.Label lblTenSP;
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnDong;
     }
 }

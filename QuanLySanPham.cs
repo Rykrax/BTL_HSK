@@ -80,9 +80,6 @@ namespace BTL_HSK_ver_1
             txtMaSP.Text = "";
             txtTenSP.Text = "";
             cboLoaiHang.Text = "";
-            lblDVT.Text = "";
-            lblGiaBan.Text = "";
-            lblGiaNhap.Text = "";
             using (SqlConnection sql = ConnectData.GetSqlConnection())
             {
                 sql.Open();
@@ -124,7 +121,7 @@ namespace BTL_HSK_ver_1
                                "JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang\n" +
                                "WHERE 1=1\n";
                 if (txtMaSP.Text != "") query += $"\nAND sp.sMaSP LIKE '%{txtMaSP.Text}%'";
-                if (txtTenSP.Text != "") query += $"\nAND sp.sTenSP = N'{txtTenSP.Text}'";
+                if (txtTenSP.Text != "") query += $"\nAND sp.sTenSP LIKE N'%{txtTenSP.Text}%'";
                 if (cboLoaiHang.Text != "") query += $"\nAND lh.sTenHang = N'{cboLoaiHang.Text}'";
                 using (SqlCommand cmd = new SqlCommand(query, sql))
                 {
