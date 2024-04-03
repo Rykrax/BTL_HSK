@@ -65,14 +65,7 @@ namespace BTL_HSK_ver_1
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Bạn có chắc chắn muốn thoát?"
-                , "Confirm"
-                , MessageBoxButtons.YesNo
-                , MessageBoxIcon.Warning);
-            if (kq == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void btnBoLoc_Click(object sender, EventArgs e)

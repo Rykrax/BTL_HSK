@@ -28,13 +28,11 @@ CREATE TABLE tblLoaiHang (
 GO
 
 CREATE TABLE tblKhachHang (
-	sMaKH VARCHAR(30) PRIMARY KEY,
+	sDienThoai VARCHAR(20) NOT NULL,
 	sHoTen NVARCHAR(70),
 	bGioiTinh BIT,
-	sDiaChi NVARCHAR(70),
-	sDienThoai VARCHAR(20),
+	sDiaChi NVARCHAR(255),
 	fTongTienHang FLOAT DEFAULT 0.0,
-	CONSTRAINT UC_sDienThoai UNIQUE(sDienThoai)
 )
 GO
 
@@ -52,7 +50,6 @@ CREATE TABLE tblDonDatHang (
 	sMaNV VARCHAR(30), 
 	sMaKH VARCHAR(30), 
 	dNgayDatHang SMALLDATETIME,
-	dNgayGiaoHang SMALLDATETIME,
 	sDiaChiGiaoHang NVARCHAR(70),
 	fTongTienHang FLOAT DEFAULT 0.0
 )
@@ -107,6 +104,7 @@ CREATE TABLE Account (
 
 INSERT INTO Account VALUES ('admin', 'admin', 'admin@gmail.com')
 --Ràng buộc-------------------------------------------------------------------------------------------------------
+ALTER TABLE tblKhachHang ADD CONSTRAINT PK_KhachHang PRIMARY KEY(sDienThoai)
 ALTER TABLE tblSanPham ADD CONSTRAINT FK_SP_LH FOREIGN KEY(sLoaiHang) REFERENCES tblLoaiHang(sLoaiHang);
 ALTER TABLE tblDonViTinh ADD CONSTRAINT FK_DVT_SP FOREIGN KEY(sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NCC FOREIGN KEY(sMaNCC) REFERENCES tblNhaCungCap(sMaNCC);
@@ -115,12 +113,11 @@ ALTER TABLE tblChiTietDNH ADD CONSTRAINT PK_NhapHang PRIMARY KEY (sMaHDNH,sMaSP,
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_SP FOREIGN KEY (sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_DNH FOREIGN KEY(sMaHDNH) REFERENCES tblDonNhapHang(sMaHDNH);
 ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_NV FOREIGN KEY(sMaNV) REFERENCES tblNhanVien(sMaNV);
-ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_KH FOREIGN KEY(sMaKH) REFERENCES tblKhachHang(sMaKH);
+ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_KH FOREIGN KEY(sDienThoai) REFERENCES tblKhachHang(sDienThoai);
 ALTER TABLE tblChiTietDDH ADD CONSTRAINT PK_DatHang PRIMARY KEY (sMaHDDH,sMaSP);
 ALTER TABLE tblChiTietDDH ADD CONSTRAINT FK_CTDDH_DDH FOREIGN KEY(sMaHDDH) REFERENCES tblDonDatHang(sMaHDDH);
 ALTER TABLE tblChiTietDDH ADD CONSTRAINT FK_CTDDH_SP FOREIGN KEY (sMaSP) REFERENCES tblSanPham(sMaSP);
 ------------------------------------------------------------------------------------------------------------------
-
 
 
 --Thêm dữ liệu----------------------------------------------------------------------------------------------------
@@ -175,6 +172,8 @@ INSERT INTO tblNhanVien VALUES
 ('NV005',N'Nguyễn Tuấn Anh',1,'2024-02-12',4500000),
 ('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000)
 
+INSERT INTO tblKhachHang VALUES
+('0982636273',N'Nguyễn Thành Công',1,N'Trung Dũng - An Lão',0.0)
 --CREATE TRIGGER [Cập nhật tổng tiền nhập hàng]
 --ON tblChiTietDNH
 --AFTER INSERT
@@ -230,28 +229,3 @@ EXEC [Danh sách sản phẩm]
 --JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
 --WHERE c.sDonViTinh = N'Thùng'
 --ORDER BY d.dNgayNhapHang DESC
-/*
-SELECT 
-    sHoTen AS [Họ tên],
-    CASE 
-        WHEN bGioiTinh = 1 THEN N'Nam'
-        ELSE N'Nữ'
-    END AS [Giới tính]
-FROM tblKhachHang;
-
-
-CREATE PROCEDURE [Nhập hàng]
-	@TenHang NVARCHAR(50),
-	@DonViTinh NVARCHAR(50)
-AS
-BEGIN
-	DECLARE @MaSP VARCHAR(30)
-	IF EXISTS (SELECT * FROM tblSanPham WHERE sTenSP = @TenHang AND sDonViTinh = @DonViTinh)
-	BEGIN
-		SELECT @MaSP = sMaSP FROM tblSanPham WHERE sTenSP = @TenHang AND sDonViTinh = @DonViTinh
-	END
-END
-*/
-
-
-SELECT * FROM tblTiLeChuyenDoi WHERE sMaSP = 'SP0001'

@@ -123,7 +123,7 @@
             // btnTaoMoi
             // 
             this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaoMoi.Location = new System.Drawing.Point(622, 432);
+            this.btnTaoMoi.Location = new System.Drawing.Point(610, 432);
             this.btnTaoMoi.Name = "btnTaoMoi";
             this.btnTaoMoi.Size = new System.Drawing.Size(155, 47);
             this.btnTaoMoi.TabIndex = 2;
@@ -203,7 +203,7 @@
             // 
             this.picDSNV.BackColor = System.Drawing.Color.Transparent;
             this.picDSNV.Image = ((System.Drawing.Image)(resources.GetObject("picDSNV.Image")));
-            this.picDSNV.Location = new System.Drawing.Point(926, 177);
+            this.picDSNV.Location = new System.Drawing.Point(926, 125);
             this.picDSNV.Name = "picDSNV";
             this.picDSNV.Size = new System.Drawing.Size(32, 30);
             this.picDSNV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,7 +213,7 @@
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(706, 177);
+            this.txtTen.Location = new System.Drawing.Point(706, 125);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(214, 30);
             this.txtTen.TabIndex = 19;
@@ -221,7 +221,7 @@
             // cboMaNV
             // 
             this.cboMaNV.FormattingEnabled = true;
-            this.cboMaNV.Location = new System.Drawing.Point(706, 125);
+            this.cboMaNV.Location = new System.Drawing.Point(706, 172);
             this.cboMaNV.Name = "cboMaNV";
             this.cboMaNV.Size = new System.Drawing.Size(214, 30);
             this.cboMaNV.TabIndex = 18;
@@ -230,7 +230,7 @@
             // lblMaNV
             // 
             this.lblMaNV.AutoSize = true;
-            this.lblMaNV.Location = new System.Drawing.Point(562, 128);
+            this.lblMaNV.Location = new System.Drawing.Point(562, 175);
             this.lblMaNV.Name = "lblMaNV";
             this.lblMaNV.Size = new System.Drawing.Size(116, 22);
             this.lblMaNV.TabIndex = 8;
@@ -239,11 +239,11 @@
             // lblTen
             // 
             this.lblTen.AutoSize = true;
-            this.lblTen.Location = new System.Drawing.Point(562, 180);
+            this.lblTen.Location = new System.Drawing.Point(562, 128);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(103, 22);
+            this.lblTen.Size = new System.Drawing.Size(120, 22);
             this.lblTen.TabIndex = 9;
-            this.lblTen.Text = "Người nhập";
+            this.lblTen.Text = "Tên nhân viên";
             // 
             // cboNCC
             // 
@@ -320,7 +320,7 @@
             // 
             // btnNhapTiep
             // 
-            this.btnNhapTiep.Location = new System.Drawing.Point(384, 432);
+            this.btnNhapTiep.Location = new System.Drawing.Point(391, 432);
             this.btnNhapTiep.Name = "btnNhapTiep";
             this.btnNhapTiep.Size = new System.Drawing.Size(155, 47);
             this.btnNhapTiep.TabIndex = 4;

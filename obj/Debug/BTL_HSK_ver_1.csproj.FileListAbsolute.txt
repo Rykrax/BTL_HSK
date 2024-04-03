@@ -13,7 +13,6 @@ F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.pdb
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmQuenMatKhau.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmTrangChu.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDoiMatKhau.resources
-F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmQuanLyKhachHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmHoaDon.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.QuanLyDatHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmNhapHang.resources

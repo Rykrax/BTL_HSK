@@ -37,7 +37,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.QuanLy = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuThemMoi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHoaDon = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThongKe = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,7 +110,7 @@
             // QuanLy
             // 
             this.QuanLy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuThemMoi,
+            this.mnuHoaDon,
             this.nhậpHàngToolStripMenuItem,
             this.quảnLýSảnPhẩmToolStripMenuItem});
             this.QuanLy.Name = "QuanLy";
@@ -118,12 +118,12 @@
             this.QuanLy.Text = "Quản lý";
             this.QuanLy.Click += new System.EventHandler(this.QuanLy_Click);
             // 
-            // mnuThemMoi
+            // mnuHoaDon
             // 
-            this.mnuThemMoi.Name = "mnuThemMoi";
-            this.mnuThemMoi.Size = new System.Drawing.Size(224, 26);
-            this.mnuThemMoi.Text = "Thêm hoá đơn";
-            this.mnuThemMoi.Click += new System.EventHandler(this.mnuKhachHang_Click);
+            this.mnuHoaDon.Name = "mnuHoaDon";
+            this.mnuHoaDon.Size = new System.Drawing.Size(224, 26);
+            this.mnuHoaDon.Text = "Thêm hoá đơn";
+            this.mnuHoaDon.Click += new System.EventHandler(this.mnuHoaDon_Click);
             // 
             // nhậpHàngToolStripMenuItem
             // 
@@ -189,7 +189,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuThoat;
         private System.Windows.Forms.ToolStripMenuItem QuanLy;
         private System.Windows.Forms.ToolStripMenuItem ThongKe;
-        private System.Windows.Forms.ToolStripMenuItem mnuThemMoi;
+        private System.Windows.Forms.ToolStripMenuItem mnuHoaDon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem nhậpHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;

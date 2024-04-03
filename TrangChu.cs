@@ -45,20 +45,6 @@ namespace BTL_HSK_ver_1
             this.Close();
         }
 
-        private void mnuKhachHang_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void mnuKhachHang_Click_1(object sender, EventArgs e)
-        {
-            frmQuanLyKhachHang form = new frmQuanLyKhachHang();
-            this.Hide();
-            form.ShowDialog();
-            form = null;
-            this.Show();
-        }
-
         private void QuanLy_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +76,15 @@ namespace BTL_HSK_ver_1
         private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLySanPham form = new frmQuanLySanPham();
+            this.Hide();
+            form.ShowDialog();
+            form = null;
+            this.Show();
+        }
+
+        private void mnuHoaDon_Click(object sender, EventArgs e)
+        {
+            frmHoaDon form = new frmHoaDon();
             this.Hide();
             form.ShowDialog();
             form = null;
