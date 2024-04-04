@@ -28,6 +28,10 @@ namespace BTL_HSK_ver_1
             cboMaNV.Text = manv;            
         }
 
+        public void XuLyMaSP(string masp, string tensp, string dvt, string loaihang, int soluong)
+        {
+
+        }
         private void frmNhapHang_Load(object sender, EventArgs e)
         {
             //Tạo mã hdnh ngẫu nhiên :>>

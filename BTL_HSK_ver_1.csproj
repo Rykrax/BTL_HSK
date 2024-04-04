@@ -67,6 +67,12 @@
     <Compile Include="DanhSachNhanVien.Designer.cs">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachSanPham.Designer.cs">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +95,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyDatHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QuanLyDatHang.Designer.cs">
-      <DependentUpon>QuanLyDatHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="QuanLySanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +108,7 @@
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="RegexCheck.cs" />
+    <Compile Include="SanPham.cs" />
     <Compile Include="ThongTinSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +136,9 @@
     <EmbeddedResource Include="DanhSachNhanVien.resx">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhSachSanPham.resx">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,9 +157,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuanLyDatHang.resx">
-      <DependentUpon>QuanLyDatHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QuanLySanPham.resx">
       <DependentUpon>QuanLySanPham.cs</DependentUpon>
     </EmbeddedResource>

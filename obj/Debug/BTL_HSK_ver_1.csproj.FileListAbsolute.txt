@@ -14,9 +14,9 @@ F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmQuenMatKhau.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmTrangChu.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDoiMatKhau.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmHoaDon.resources
-F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.QuanLyDatHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmNhapHang.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDanhSachNhanVien.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmThongTinTaiKhoan.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmQuanLySanPham.resources
 F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmThongTinSanPham.resources
+F:\Software\C#\BTL_HSK_ver_1\obj\Debug\BTL_HSK_ver_1.frmDanhSachSanPham.resources

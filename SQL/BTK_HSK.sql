@@ -59,7 +59,8 @@ CREATE TABLE tblChiTietDDH (
 	sMaHDDH VARCHAR(30) NOT NULL,
 	sMaSP VARCHAR(30) NOT NULL,
 	iSoLuong INT,
-	sDonViTinh NVARCHAR(50)
+	sDonViTinh NVARCHAR(50) NOT NULL,
+	fGiaTien FLOAT DEFAULT 0.0
 )
 GO
 
@@ -114,7 +115,7 @@ ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_SP FOREIGN KEY (sMaSP) REFEREN
 ALTER TABLE tblChiTietDNH ADD CONSTRAINT FK_CTDNH_DNH FOREIGN KEY(sMaHDNH) REFERENCES tblDonNhapHang(sMaHDNH);
 ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_NV FOREIGN KEY(sMaNV) REFERENCES tblNhanVien(sMaNV);
 ALTER TABLE tblDonDatHang ADD CONSTRAINT FK_DDH_KH FOREIGN KEY(sDienThoai) REFERENCES tblKhachHang(sDienThoai);
-ALTER TABLE tblChiTietDDH ADD CONSTRAINT PK_DatHang PRIMARY KEY (sMaHDDH,sMaSP);
+ALTER TABLE tblChiTietDDH ADD CONSTRAINT PK_DatHang PRIMARY KEY (sMaHDDH,sMaSP,sDonViTinh);
 ALTER TABLE tblChiTietDDH ADD CONSTRAINT FK_CTDDH_DDH FOREIGN KEY(sMaHDDH) REFERENCES tblDonDatHang(sMaHDDH);
 ALTER TABLE tblChiTietDDH ADD CONSTRAINT FK_CTDDH_SP FOREIGN KEY (sMaSP) REFERENCES tblSanPham(sMaSP);
 ------------------------------------------------------------------------------------------------------------------
@@ -229,3 +230,60 @@ EXEC [Danh sách sản phẩm]
 --JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
 --WHERE c.sDonViTinh = N'Thùng'
 --ORDER BY d.dNgayNhapHang DESC
+
+
+SELECT sp.sMaSP, sp.sTenSP, dvt.sTenDVT, lh.sTenHang
+FROM tblSanPham AS sp
+JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang
+JOIN tblDonViTinh AS dvt ON sp.sMaSP = dvt.sMaSP
+
+CREATE PROC [Tạo hoá đơn]
+	@mahd VARCHAR(30),
+	@manv VARCHAR(30),
+	@sdt VARCHAR(20),
+	@hoten NVARCHAR(70),
+	@gioitinh BIT,
+	@diachi NVARCHAR(255)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM tblKhachHang WHERE sDienThoai = @sdt)
+		BEGIN
+			INSERT INTO tblKhachHang VALUES (@sdt,@hoten,@gioitinh,@diachi,0.0)
+		END
+	INSERT INTO tblDonDatHang VALUES (@mahd,@manv,@sdt,GETDATE(),@diachi,0.0)
+END
+
+CREATE PROC [Thêm hoá đơn]
+	@mahd VARCHAR(30),
+	@masp VARCHAR(30),
+	@soluong INT,
+	@dvt NVARCHAR(50),
+	@giatien FLOAT
+AS
+BEGIN
+	INSERT INTO tblChiTietDDH VALUES
+	(@mahd,@masp,@soluong,@dvt,@giatien)
+	UPDATE tblDonDatHang
+	SET fTongTienHang = fTongTienHang + @giatien
+END
+
+SELECT GETDATE() AS CurrentDateTime;
+
+CREATE PROC [Giá tiền]
+	@masp VARCHAR(30),
+	@dvt NVARCHAR(50)
+AS
+BEGIN	
+	SELECT * FROM tblDonViTinh WHERE sMaSP = @masp AND sTenDVT = @dvt
+END
+
+--EXEC [Giá tiền]
+--	@masp = 'SP0001',
+--	@dvt = N'Thùng'
+--EXEC [Tạo hoá đơn]
+--@mahd = 'HDDH8018',
+--@manv = 'NV003',
+--@sdt = '0983404598',
+--@hoten = N'Phạm Tuấn Khang',
+--@gioitinh = 1,
+--@diachi = N'255 Định công, Hoàng mai'

@@ -199,5 +199,10 @@ namespace BTL_HSK_ver_1
                 }
             }
         }
+
+        private void dgvDanhSach_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
