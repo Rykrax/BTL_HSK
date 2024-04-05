@@ -48,7 +48,7 @@ GO
 CREATE TABLE tblDonDatHang (
 	sMaHDDH VARCHAR(30) PRIMARY KEY,
 	sMaNV VARCHAR(30), 
-	sMaKH VARCHAR(30), 
+	sDienThoai VARCHAR(20), 
 	dNgayDatHang SMALLDATETIME,
 	sDiaChiGiaoHang NVARCHAR(70),
 	fTongTienHang FLOAT DEFAULT 0.0
@@ -105,7 +105,7 @@ CREATE TABLE Account (
 
 INSERT INTO Account VALUES ('admin', 'admin', 'admin@gmail.com')
 --Ràng buộc-------------------------------------------------------------------------------------------------------
-ALTER TABLE tblKhachHang ADD CONSTRAINT PK_KhachHang PRIMARY KEY(sDienThoai)
+ALTER TABLE tblKhachHang ADD CONSTRAINT PK_KhachHang PRIMARY KEY(sDienThoai);
 ALTER TABLE tblSanPham ADD CONSTRAINT FK_SP_LH FOREIGN KEY(sLoaiHang) REFERENCES tblLoaiHang(sLoaiHang);
 ALTER TABLE tblDonViTinh ADD CONSTRAINT FK_DVT_SP FOREIGN KEY(sMaSP) REFERENCES tblSanPham(sMaSP);
 ALTER TABLE tblDonNhapHang ADD CONSTRAINT FK_DNH_NCC FOREIGN KEY(sMaNCC) REFERENCES tblNhaCungCap(sMaNCC);
@@ -123,16 +123,16 @@ ALTER TABLE tblChiTietDDH ADD CONSTRAINT FK_CTDDH_SP FOREIGN KEY (sMaSP) REFEREN
 
 --Thêm dữ liệu----------------------------------------------------------------------------------------------------
 INSERT INTO tblKhachHang VALUES
-('KH001',N'Nguyễn Thành Công',1,N'255 Định Công Hạ, Hoàng Mai','0983486644',0),
-('KH002',N'Nguyễn Tuấn Long',1,N'23 Láng Hạ, Hà Nội','0974863548',0),
-('KH003',N'Dương Thành Long',1,N'240 Nguyễn Văn Trỗi, Thị Trấn An Lão','0963876548',0),
-('KH004',N'Trương Vũ Lan',0,N'12 Hoàng Xá, Thị Trấn An Lão','0983564634',0),
-('KH005',N'Nguyễn Ngọc Linh',0,N'112 Quyết Thắng, Thị Trấn Trường Sơn','0876845754',0),
-('KH006',N'Phạm Thành Vinh',1,N'255 Hồng Bàng, Điện Biến Phủ','0878765474',0),
-('KH007',N'Phạm Ngọc Lan',0,N'65 Thái Sơn, Thị Trấn An Lão','0872687254',0),
-('KH008',N'Hà Thảo Linh',0,N'45 Giải Phóng, Hà Nội','0983495876',0),
-('KH009',N'Nguyễn Ngọc Sơn',1,N'96 Định Công, Hoàng Mai','0983404587',0),
-('KH010',N'Lê Thảo Linh',0,N'193 Vĩnh Hưng, Hai Bà Trưng','0273676482',0)
+('0983486644',N'Nguyễn Thành Công',1,N'255 Định Công Hạ, Hoàng Mai',0),
+('0974863548',N'Nguyễn Tuấn Long',1,N'23 Láng Hạ, Hà Nội',0),
+('0963876548',N'Dương Thành Long',1,N'240 Nguyễn Văn Trỗi, Thị Trấn An Lão',0),
+('0983564634',N'Trương Vũ Lan',0,N'12 Hoàng Xá, Thị Trấn An Lão',0),
+('0876845754',N'Nguyễn Ngọc Linh',0,N'112 Quyết Thắng, Thị Trấn Trường Sơn',0),
+('0878765474',N'Phạm Thành Vinh',1,N'255 Hồng Bàng, Điện Biến Phủ',0),
+('0872687254',N'Phạm Ngọc Lan',0,N'65 Thái Sơn, Thị Trấn An Lão',0),
+('0983495876',N'Hà Thảo Linh',0,N'45 Giải Phóng, Hà Nội',0),
+('0983404587',N'Nguyễn Ngọc Sơn',1,N'96 Định Công, Hoàng Mai',0),
+('0273676482',N'Lê Thảo Linh',0,N'193 Vĩnh Hưng, Hai Bà Trưng',0)
 
 INSERT INTO tblLoaiHang VALUES
 ('LH001',N'Đồ ăn'),
@@ -188,7 +188,7 @@ INSERT INTO tblKhachHang VALUES
 --    WHERE tblDonNhapHang.sMaHDNH IN (SELECT sMaHDNH FROM inserted)
 --END;
 
-ALTER PROC [Danh sách sản phẩm]
+CREATE PROC [Danh sách sản phẩm]
 AS
 BEGIN	
 	SELECT sMaSP, sTenSP, sTenHang
@@ -267,7 +267,7 @@ BEGIN
 	SET fTongTienHang = fTongTienHang + @giatien
 END
 
-SELECT GETDATE() AS CurrentDateTime;
+--SELECT GETDATE() AS CurrentDateTime;
 
 CREATE PROC [Giá tiền]
 	@masp VARCHAR(30),

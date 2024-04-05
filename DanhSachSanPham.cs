@@ -136,5 +136,10 @@ namespace BTL_HSK_ver_1
         {
 
         }
+
+        private void cboLoaiHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
