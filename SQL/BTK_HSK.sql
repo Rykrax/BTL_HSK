@@ -171,7 +171,8 @@ INSERT INTO tblNhanVien VALUES
 ('NV003',N'Phạm Quỳnh Như',0,'2023-12-13',4500000),
 ('NV004',N'Dương Thành An',1,'2024-01-11',5500000),
 ('NV005',N'Nguyễn Tuấn Anh',1,'2024-02-12',4500000),
-('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000)
+('NV006',N'Dương Quỳnh Anh',0,'2021-10-24',7830000),
+('NV007',N'Hoàng Tùng Lâm',1,'2023-11-23',3500000)
 
 INSERT INTO tblKhachHang VALUES
 ('0982636273',N'Nguyễn Thành Công',1,N'Trung Dũng - An Lão',0.0)
@@ -198,44 +199,11 @@ END
 
 EXEC [Danh sách sản phẩm]
 
---SELECT ctnh.sMaSP, sp.sTenSP, ctnh.fGiaTien
---FROM tblChiTietDNH ctnh
---INNER JOIN tblSanPham sp ON ctnh.sMaSP = sp.sMaSP
---INNER JOIN tblDonNhapHang dnh ON ctnh.sMaHDNH = dnh.sMaHDNH
---WHERE dvt.sTenDVT = N'Chai'
---AND dnh.dNgayNhapHang = (
---    SELECT MAX(dNgayNhapHang)
---    FROM tblDonNhapHang
---)
 
---SELECT ctnh.sMaSP, sp.sTenSP, ctnh.fGiaTien
---FROM tblSanPham sp
---INNER JOIN tblChiTietDNH ctnh ON sp.sMaSP = ctnh.sMaSP
---INNER JOIN tblDonNhapHang dnh ON ctnh.sMaHDNH = dnh.sMaHDNH
---INNER JOIN tblDonViTinh dvt ON sp.sMaSP = dvt.sMaSP
---WHERE dvt.sTenDVT = N'lốc 6 Chai'
---AND dnh.dNgayNhapHang = (
---    SELECT MAX(dNgayNhapHang)
---    FROM tblDonNhapHang
---)
---SELECT TOP 10 c.fGiaTien
---FROM tblChiTietDNH c
---JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
---WHERE c.sMaSP = 'SP0001' 
---AND c.sDonViTinh = N'Thùng'
---ORDER BY d.dNgayNhapHang DESC
-
---SELECT TOP 10 c.sMaSP, c.fGiaTien
---FROM tblChiTietDNH c
---JOIN tblDonNhapHang d ON c.sMaHDNH = d.sMaHDNH
---WHERE c.sDonViTinh = N'Thùng'
---ORDER BY d.dNgayNhapHang DESC
-
-
-SELECT sp.sMaSP, sp.sTenSP, dvt.sTenDVT, lh.sTenHang
-FROM tblSanPham AS sp
-JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang
-JOIN tblDonViTinh AS dvt ON sp.sMaSP = dvt.sMaSP
+--SELECT sp.sMaSP, sp.sTenSP, dvt.sTenDVT, lh.sTenHang
+--FROM tblSanPham AS sp
+--JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang
+--JOIN tblDonViTinh AS dvt ON sp.sMaSP = dvt.sMaSP
 
 CREATE PROC [Tạo hoá đơn]
 	@mahd VARCHAR(30),
@@ -287,3 +255,19 @@ END
 --@hoten = N'Phạm Tuấn Khang',
 --@gioitinh = 1,
 --@diachi = N'255 Định công, Hoàng mai'
+
+CREATE PROC ReportRevenue
+AS
+BEGIN
+	SELECT ddh.sMaHDDH, nv.sHoTen, ddh.dNgayTao, ddh.fTongTienHang 
+	FROM tblDonDatHang ddh
+	INNER JOIN tblNhanVien nv ON nv.sMaNV = ddh.sMaNV
+END
+
+
+CREATE PROC ReportEmployee
+AS
+BEGIN
+	SELECT *
+	FROM tblNhanVien
+END

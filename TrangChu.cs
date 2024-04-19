@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.Web.HtmlReportRender;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,6 +90,23 @@ namespace BTL_HSK_ver_1
             form.ShowDialog();
             form = null;
             this.Show();
+        }
+
+        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport form = new frmReport();
+            //this.Hide();
+            form.Show();
+            form.ShowReport("ReportRevenue.rpt", "ReportRevenue");
+        }
+
+        private void doanhThuNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport form = new frmReport();
+            //this.Hide();
+            form.Show();
+            form.ShowReport("ReportEmployee.rpt", "ReportEmployee");
+            //this.Show();
         }
     }
 }

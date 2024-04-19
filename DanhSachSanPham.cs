@@ -98,7 +98,7 @@ namespace BTL_HSK_ver_1
                 }
                 sql.Close();
             }
-            dgvDanhSach.SelectedRows.Clear();
+            dgvDanhSach.ClearSelection();
         }
 
         private void dgvDanhSach_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -132,14 +132,51 @@ namespace BTL_HSK_ver_1
             }
         }
 
-        private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void cboLoaiHang_TextChanged(object sender, EventArgs e)
         {
+            LoadForm();
+        }
 
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        public void LoadForm()
+        {
+            using (SqlConnection sql = ConnectData.GetSqlConnection())
+            {
+                sql.Open();
+                string query = "SELECT sp.sMaSP, sp.sTenSP, dvt.sTenDVT, lh.sTenHang\n" +
+                               "FROM tblSanPham AS sp\n" +
+                               "JOIN tblLoaiHang AS lh ON sp.sLoaiHang = lh.sLoaiHang\n" +
+                               "JOIN tblDonViTinh AS dvt ON sp.sMaSP = dvt.sMaSP\n" +
+                               "WHERE 1 = 1";
+                if (cboLoaiHang.Text.Length > 0) { query += $" AND lh.sTenHang = N'{cboLoaiHang.Text}'"; }
+                if (txtTenSP.Text.Length > 0) { query += $" AND sp.sTenSP LIKE N'%{txtTenSP.Text}%'"; }
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            adapter.Fill(dt);
+                            dt.Columns["sMaSP"].ColumnName = "Mã sản phẩm";
+                            dt.Columns["sTenSP"].ColumnName = "Tên sản phẩm";
+                            dt.Columns["sTenDVT"].ColumnName = "Đơn vị tính";
+                            dt.Columns["sTenHang"].ColumnName = "Loại hàng";
+
+                            dgvDanhSach.DataSource = dt;
+                            dgvDanhSach.Columns["Mã sản phẩm"].Width = 150;
+                            dgvDanhSach.Columns["Tên sản phẩm"].Width = 300;
+                            dgvDanhSach.Columns["Đơn vị tính"].Width = 200;
+                            dgvDanhSach.Columns["Loại hàng"].Width = 200;
+                        }
+                    }
+                }
+                sql.Close();
+            }
+            dgvDanhSach.ClearSelection();
         }
     }
 }

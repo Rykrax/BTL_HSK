@@ -81,7 +81,6 @@
             this.dgvDanhSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSach.Size = new System.Drawing.Size(864, 271);
             this.dgvDanhSach.TabIndex = 4;
-            this.dgvDanhSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSach_CellContentClick);
             this.dgvDanhSach.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSach_CellContentDoubleClick);
             // 
             // txtTenSP
@@ -90,6 +89,7 @@
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(213, 30);
             this.txtTenSP.TabIndex = 3;
+            this.txtTenSP.TextChanged += new System.EventHandler(this.txtTenSP_TextChanged);
             // 
             // cboLoaiHang
             // 

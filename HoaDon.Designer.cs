@@ -60,16 +60,16 @@
             this.lblMaSP = new System.Windows.Forms.Label();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.dgvDanhSach = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.grbThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDSNV)).BeginInit();
             this.grbThongTinSP.SuspendLayout();
@@ -437,7 +437,47 @@
             this.dgvDanhSach.Size = new System.Drawing.Size(1014, 199);
             this.dgvDanhSach.TabIndex = 0;
             this.dgvDanhSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSach_CellContentClick);
-            this.dgvDanhSach.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDanhSach_RowsAdded);
+            this.dgvDanhSach.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSach_CellContentDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaSP";
+            this.Column1.HeaderText = "Mã sản phẩm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenSP";
+            this.Column2.HeaderText = "Tên sản phẩm";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 270;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "DVT";
+            this.Column3.HeaderText = "Đơn vị tính";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 160;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "LoaiHang";
+            this.Column4.HeaderText = "Loại hàng";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 200;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "SoLuong";
+            this.Column5.HeaderText = "Số lượng";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 180;
             // 
             // label12
             // 
@@ -483,46 +523,6 @@
             this.label6.Size = new System.Drawing.Size(81, 22);
             this.label6.TabIndex = 0;
             this.label6.Text = "Tên hàng";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaSP";
-            this.Column1.HeaderText = "Mã sản phẩm";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenSP";
-            this.Column2.HeaderText = "Tên sản phẩm";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 270;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "DVT";
-            this.Column3.HeaderText = "Đơn vị tính";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 160;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "LoaiHang";
-            this.Column4.HeaderText = "Loại hàng";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 200;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "SoLuong";
-            this.Column5.HeaderText = "Số lượng";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 180;
             // 
             // frmHoaDon
             // 

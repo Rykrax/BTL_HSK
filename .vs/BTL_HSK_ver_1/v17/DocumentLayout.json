@@ -1,0 +1,217 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Software\\C#\\BTL_HSK_ver_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|f:\\software\\c#\\btl_hsk_ver_1\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:nhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\modify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:modify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\doimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:doimatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\danhsachsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:danhsachsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\baocao\\reportrevenue.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:baocao\\reportrevenue.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\ichuyendulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:ichuyendulieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\baocao\\reportemployee.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:baocao\\reportemployee.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|F:\\Software\\C#\\BTL_HSK_ver_1\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0772C0D8-3314-44E5-9E31-C6B0D18EFC62}|BTL_HSK_ver_1.csproj|solutionrelative:report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HoaDon.cs",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\HoaDon.cs",
+              "RelativeDocumentMoniker": "HoaDon.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\HoaDon.cs",
+              "RelativeToolTip": "HoaDon.cs",
+              "ViewState": "AQIAAJ0BAAAAAAAAAAASwJ4BAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T01:12:02.037Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Modify.cs",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\Modify.cs",
+              "RelativeDocumentMoniker": "Modify.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\Modify.cs",
+              "RelativeToolTip": "Modify.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T11:26:10.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DoiMatKhau.cs [Design]",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\DoiMatKhau.cs",
+              "RelativeDocumentMoniker": "DoiMatKhau.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\DoiMatKhau.cs [Design]",
+              "RelativeToolTip": "DoiMatKhau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T05:59:56.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DanhSachSanPham.cs [Design]",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\DanhSachSanPham.cs",
+              "RelativeDocumentMoniker": "DanhSachSanPham.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\DanhSachSanPham.cs [Design]",
+              "RelativeToolTip": "DanhSachSanPham.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T05:59:55.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NhapHang.cs [Design]",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\NhapHang.cs",
+              "RelativeDocumentMoniker": "NhapHang.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\NhapHang.cs [Design]",
+              "RelativeToolTip": "NhapHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T05:59:59.437Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NhapHang.cs",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\NhapHang.cs",
+              "RelativeDocumentMoniker": "NhapHang.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\NhapHang.cs",
+              "RelativeToolTip": "NhapHang.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAkwDIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T11:24:10.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReportRevenue.rpt",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\BaoCao\\ReportRevenue.rpt",
+              "RelativeDocumentMoniker": "BaoCao\\ReportRevenue.rpt",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\BaoCao\\ReportRevenue.rpt",
+              "RelativeToolTip": "BaoCao\\ReportRevenue.rpt",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPdSURBVDhPrZRbaBxVGMf/c9nd2Vuyu9nN5m7aStI2oWtSCBgtWgj10oe2D2Le1FRRBBEk\u002BCJo8amIIL5U0BfFF6mFalOs0CdrWqhJNkmTUEyyzaXuJpvsdXZ2dnauntmdbJvEvvkb/pxvZr7vP\u002Bec\u002BTj4XzEMg7LCCj39z7/y6vC7n1m3T2RtaWHi8ncXP7Bud8FaYwVPnS94pPeZgcihIBiGBkWuvfyzXcC0P9SsKrJ08\u002Br3XxbymaT1qgJjjRXaOrsiz518\u002BdyJSCv8Xid8HgcCXo7Ej1QQZciGrf7EswN9W\u002BlMLpva3hCLfNayAG2NNcw50RSFYklBtiAhs0diWYXXZcfxo23O4fMfXewbHHrNWx8IV6v/w7AGcSa\u002B\u002B0VebeVEXBuPgSezPT383qdDZ98YrRY9YYYmDKlm6KpkWsLvxhg2qTjaw14M9rRg4EgTBntbcKCtwel2OzmrbLchRUxoYmBe5kjTNAS6gHvGLK4LV/FD/lssUBMIB9xosuThbOSjj2z2GJr7txNTyGgpLGl/Y5G6j/viPH4VruAX4WfMKzOVD5qzN/Meh2ZcjRxRHZGPste7dIOGphuQjCKiUhTjpXFojAyH7oCmabjJ38Cl9FfIKCkYlLbPkG0\u002Bc/lFQI\u002BQOEg1cpGlDYP8TQVjxetYLi9DhYZcKYdCloeqqSQViKYn8f7GCL4\u002BdolsjrPqZMF\u002B8\u002BExV1lRfGleaY5tlP0zqzIu/JQC6\u002BtCOryCXDgKw6OD1hhIs2WU4xI6mjsx\u002BvrHaORCyFCCZVWFVgtri7qw/mebt3Br4BC73NPBIZGWEVsM4uFsL9KrByGyAkkkWxFX0cf24/zRt/FC6CQ8Ns\u002B\u002BJTM5tX47OrOwSp6vdbb6Q4c73Kc4O4tYUkN6MwRKDsLuT0HMJ/CU1I43B0bw1tBIxcjUZlpAdGpqYvavWzcqhrH524jN39FFxVZk65qebm1uOHeqP4BkXsc2r0NM\u002BWE8OAy7L4rPX/oEZyJnwZI22WmvZKaE6ejkxPTdqmGtbebu/oa529dgt7FwO\u002B3obnGgI2iDi2PgdzRg9MAFdLl6YZBcilSZKzXbj5whtVYzqRlKRR6lYp4kUzBbJ1cCNFJZ72Hhd9sRtIXB6nboul5b7uPaoWZoompAtghMLEuIZwxyhDFoD9LoDqvI8SISKQFxcnytb/E1lWS1cpjssOs8pGiGVw37yty61Ej\u002BC9cZouBlVTHoKKTWE7liOsvL0EpaucSbK6\u002BR2kqsWeFuw5YAN336eOCLsqK\u002BIxSl7rwgI54UZhaWtn9cXElOKqr28N6dMX7qjyuKVbIH4F/CwpxOdjf1iQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2024-04-14T00:34:24.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "iChuyenDuLieu.cs",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\iChuyenDuLieu.cs",
+              "RelativeDocumentMoniker": "iChuyenDuLieu.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\iChuyenDuLieu.cs",
+              "RelativeToolTip": "iChuyenDuLieu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T05:59:58.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReportEmployee.rpt",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\BaoCao\\ReportEmployee.rpt",
+              "RelativeDocumentMoniker": "BaoCao\\ReportEmployee.rpt",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\BaoCao\\ReportEmployee.rpt",
+              "RelativeToolTip": "BaoCao\\ReportEmployee.rpt",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPdSURBVDhPrZRbaBxVGMf/c9nd2Vuyu9nN5m7aStI2oWtSCBgtWgj10oe2D2Le1FRRBBEk\u002BCJo8amIIL5U0BfFF6mFalOs0CdrWqhJNkmTUEyyzaXuJpvsdXZ2dnauntmdbJvEvvkb/pxvZr7vP\u002Bec\u002BTj4XzEMg7LCCj39z7/y6vC7n1m3T2RtaWHi8ncXP7Bud8FaYwVPnS94pPeZgcihIBiGBkWuvfyzXcC0P9SsKrJ08\u002Br3XxbymaT1qgJjjRXaOrsiz518\u002BdyJSCv8Xid8HgcCXo7Ej1QQZciGrf7EswN9W\u002BlMLpva3hCLfNayAG2NNcw50RSFYklBtiAhs0diWYXXZcfxo23O4fMfXewbHHrNWx8IV6v/w7AGcSa\u002B\u002B0VebeVEXBuPgSezPT383qdDZ98YrRY9YYYmDKlm6KpkWsLvxhg2qTjaw14M9rRg4EgTBntbcKCtwel2OzmrbLchRUxoYmBe5kjTNAS6gHvGLK4LV/FD/lssUBMIB9xosuThbOSjj2z2GJr7txNTyGgpLGl/Y5G6j/viPH4VruAX4WfMKzOVD5qzN/Meh2ZcjRxRHZGPste7dIOGphuQjCKiUhTjpXFojAyH7oCmabjJ38Cl9FfIKCkYlLbPkG0\u002Bc/lFQI\u002BQOEg1cpGlDYP8TQVjxetYLi9DhYZcKYdCloeqqSQViKYn8f7GCL4\u002BdolsjrPqZMF\u002B8\u002BExV1lRfGleaY5tlP0zqzIu/JQC6\u002BtCOryCXDgKw6OD1hhIs2WU4xI6mjsx\u002BvrHaORCyFCCZVWFVgtri7qw/mebt3Br4BC73NPBIZGWEVsM4uFsL9KrByGyAkkkWxFX0cf24/zRt/FC6CQ8Ns\u002B\u002BJTM5tX47OrOwSp6vdbb6Q4c73Kc4O4tYUkN6MwRKDsLuT0HMJ/CU1I43B0bw1tBIxcjUZlpAdGpqYvavWzcqhrH524jN39FFxVZk65qebm1uOHeqP4BkXsc2r0NM\u002BWE8OAy7L4rPX/oEZyJnwZI22WmvZKaE6ejkxPTdqmGtbebu/oa529dgt7FwO\u002B3obnGgI2iDi2PgdzRg9MAFdLl6YZBcilSZKzXbj5whtVYzqRlKRR6lYp4kUzBbJ1cCNFJZ72Hhd9sRtIXB6nboul5b7uPaoWZoompAtghMLEuIZwxyhDFoD9LoDqvI8SISKQFxcnytb/E1lWS1cpjssOs8pGiGVw37yty61Ej\u002BC9cZouBlVTHoKKTWE7liOsvL0EpaucSbK6\u002BR2kqsWeFuw5YAN336eOCLsqK\u002BIxSl7rwgI54UZhaWtn9cXElOKqr28N6dMX7qjyuKVbIH4F/CwpxOdjf1iQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2024-04-14T00:04:10.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Report.cs",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\Report.cs",
+              "RelativeDocumentMoniker": "Report.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\Report.cs",
+              "RelativeToolTip": "Report.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAiwCoAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T23:43:31.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TrangChu.cs [Design]",
+              "DocumentMoniker": "F:\\Software\\C#\\BTL_HSK_ver_1\\TrangChu.cs",
+              "RelativeDocumentMoniker": "TrangChu.cs",
+              "ToolTip": "F:\\Software\\C#\\BTL_HSK_ver_1\\TrangChu.cs [Design]",
+              "RelativeToolTip": "TrangChu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T18:16:15.739Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

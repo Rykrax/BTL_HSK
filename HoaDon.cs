@@ -216,59 +216,6 @@ namespace BTL_HSK_ver_1
             dgvDanhSach.ClearSelection();
         }
 
-        private void dgvDanhSach_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            
-        }
-
-        private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnLuu.Enabled = true;
-            using (SqlConnection sql = ConnectData.GetSqlConnection())
-            {
-                sql.Open();
-                string query = "SELECT * FROM tblDonViTinh WHERE sMaSP = @masp AND sTenDVT = @dvt";
-                using (SqlCommand cmd = new SqlCommand(query, sql))
-                {
-                    DataGridViewRow row = dgvDanhSach.SelectedRows[0];
-                    string masp = row.Cells["Column1"].Value.ToString();
-                    string dvt = row.Cells["Column3"].Value.ToString();
-                    cmd.Parameters.AddWithValue("@masp", masp);
-                    cmd.Parameters.AddWithValue("@dvt", dvt);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            double giatien = reader.GetDouble(3);
-                            lblDonGia.Text = giatien.ToString();
-                            lblThanhTien.Text = (giatien * int.Parse(txtSoLuong.Text)).ToString();
-                            /*lblTongTien.Text = (double.Parse(lblTongTien.Text) + (giatien * int.Parse(txtSoLuong.Text))).ToString();*/
-                            foreach (SanPham item in list)
-                            {
-                                if (item.MaSP == masp && item.DVT == dvt)
-                                {
-                                    int diff = int.Parse(txtSoLuong.Text) - item.SoLuong;
-                                    if (diff >= 0)
-                                    {
-                                        lblTongTien.Text = (double.Parse(lblTongTien.Text) + (giatien * diff)).ToString();
-                                    }
-                                    else
-                                    {
-                                        diff *= -1;
-                                        lblTongTien.Text = (double.Parse(lblTongTien.Text) - (giatien * diff)).ToString();
-                                    }
-                                    item.SoLuong = int.Parse(txtSoLuong.Text);
-                                }
-                            }
-                            row.Cells["Column5"].Value = txtSoLuong.Text;
-                        }
-                    }
-                }
-                sql.Close();
-            }
-        }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -414,6 +361,7 @@ namespace BTL_HSK_ver_1
         
         private void btnHoaDonMoi_Click(object sender, EventArgs e)
         {
+            txtSoLuong.Text = "1";
             txtTenKH.Text = "";
             txtSDT.Text = "";
             txtDiaChi.Text = "";
@@ -427,5 +375,64 @@ namespace BTL_HSK_ver_1
             list.Clear();
             dgvDanhSach.DataSource = list;
         }
+
+        private void dgvDanhSach_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = true;
+            using (SqlConnection sql = ConnectData.GetSqlConnection())
+            {
+                sql.Open();
+                string query = "SELECT * FROM tblDonViTinh WHERE sMaSP = @masp AND sTenDVT = @dvt";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    DataGridViewRow row = dgvDanhSach.SelectedRows[0];
+                    string masp = row.Cells["Column1"].Value.ToString();
+                    string dvt = row.Cells["Column3"].Value.ToString();
+                    cmd.Parameters.AddWithValue("@masp", masp);
+                    cmd.Parameters.AddWithValue("@dvt", dvt);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            double giatien = reader.GetDouble(3);
+                            lblDonGia.Text = giatien.ToString();
+                            lblThanhTien.Text = (giatien * int.Parse(txtSoLuong.Text)).ToString();
+                            /*lblTongTien.Text = (double.Parse(lblTongTien.Text) + (giatien * int.Parse(txtSoLuong.Text))).ToString();*/
+                            foreach (SanPham item in list)
+                            {
+                                if (item.MaSP == masp && item.DVT == dvt)
+                                {
+                                    int diff = int.Parse(txtSoLuong.Text) - item.SoLuong;
+                                    if (diff >= 0)
+                                    {
+                                        lblTongTien.Text = (double.Parse(lblTongTien.Text) + (giatien * diff)).ToString();
+                                    }
+                                    else
+                                    {
+                                        diff *= -1;
+                                        lblTongTien.Text = (double.Parse(lblTongTien.Text) - (giatien * diff)).ToString();
+                                    }
+                                    item.SoLuong = int.Parse(txtSoLuong.Text);
+                                }
+                            }
+                            row.Cells["Column5"].Value = txtSoLuong.Text;
+                        }
+                    }
+                }
+                sql.Close();
+            }
+        }
+
+/*        private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }*/
     }
 }
